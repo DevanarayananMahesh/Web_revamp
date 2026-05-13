@@ -8,16 +8,40 @@
 </head>
 <body>
 
-<canvas id="hex-canvas" width="885" height="765"></canvas>
+  <div class="prism" id="gear_prism" style="top: 20%; left: 93%;">
+    <img src="../images/gor icon.png" style="opacity: .15;">
+    <img src="../images/gor icon.png" style="opacity: .3;">
+  </div>
+
+  <div class="prism" id="gear_prism" style="top: 150%; left: 93%;">
+    <img src="../images/gor icon.png" style="opacity: .15;">
+    <img src="../images/gor icon.png" style="opacity: .3;">
+  </div>
+
+  <div class="prism" id="gear_prism" style="top: 304%; left: 6%;">
+    <img src="../images/gor icon.png" style="opacity: .15;">
+    <img src="../images/gor icon.png" style="opacity: .3;">
+  </div>
+
+  <div class="prism" id="gear_prism" style="top: 380%; left: 83%;">
+    <img src="../images/gor icon.png" style="opacity: .15;">
+    <img src="../images/gor icon.png" style="opacity: .3;">
+  </div>
+
+  <div class="prism" id="gear_prism" style="top: 430%; left: 40%;">
+    <img src="../images/gor icon.png" style="opacity: .15;">
+    <img src="../images/gor icon.png" style="opacity: .3;">
+  </div>
+
 
 <!-- NAV -->
 <div class="nav">
     <img src="../images/Logo_nav.png" class="class_logo">
   <div class="nav-links">
     <a href="#about"><button class="btn_nav">About</button></a>
-    <a href="#team"><button class="btn_nav">What We Do</button></a>
-    <a href="#goals"><button class="btn_nav">Team</button></a>
-    <a href="#join"><button class="btn_nav">Contact</button></a>
+    <a href="#what_we_do"><button class="btn_nav">What We Do</button></a>
+    <a href="#seeking"><button class="btn_nav">Seeking</button></a>
+    <a href="#contact"><button class="btn_nav">Contact</button></a>
     <a href="https://ebms.mcmsnj.net/admissions/ai-robotics"><button class="btn_nav_apply">Apply Now</button></a>
   </div>
 </div>
@@ -26,9 +50,9 @@
 <section id="hero">
   <div class="hero-left">
     <h1 class="hero-title">
-      <div class="section-label">00 — Team Name</div>
-      <span class="line1">EB Magnet</span>
-      <span class="line2">AI & Robotics</span>
+      <div class="section-label">00 — Welcome to</div>
+      <span class="line1" id="line1">EB Magnet</span>
+      <span class="line2" id="line2">AI & Robotics</span>
     </h1>
     <p class="hero-sub">
       A tight-knit group of students, all working together to learn how to code, build, and thrive. The future is here.
@@ -42,11 +66,19 @@
 
 <!-- RULE ROW -->
 <div class="rule-row">
-  <span class="rule-item">East Brunswick, NJ</span>
-  <span class="rule-item">Grades 9–12</span>
-  <span class="rule-item">Comp Sci & Mechatronics</span>
-  <span class="rule-item">Middlesex County Magnet Schools</span>
-  <span class="rule-item">Build · Code · Learn</span>
+  <div class="ticker-track">   <!-- ADD THIS -->
+    <span class="rule-item">East Brunswick, NJ</span>
+    <span class="rule-item">Grades 9–12</span>
+    <span class="rule-item">Comp Sci & Mechatronics</span>
+    <span class="rule-item">Middlesex County Magnet Schools</span>
+    <span class="rule-item">Build · Code · Learn</span>
+    <!-- COPY ALL 5 AGAIN RIGHT HERE -->
+    <span class="rule-item">East Brunswick, NJ</span>
+    <span class="rule-item">Grades 9–12</span>
+    <span class="rule-item">Comp Sci & Mechatronics</span>
+    <span class="rule-item">Middlesex County Magnet Schools</span>
+    <span class="rule-item">Build · Code · Learn</span>
+  </div>              <!-- ADD THIS -->
 </div>
 
 <!-- STATS -->
@@ -91,7 +123,7 @@
 </section>
 
 <!-- ══════════════ WHAT STUDENTS DO ══════════════ -->
-<section class="section" id="team">
+<section class="section" id="what_we_do">
   <div class="anim-right">
     <div class="section-label">02 — What We Do</div>
     <h2 class="section-title">CODE | LEARN | CREATE</h2>
@@ -133,9 +165,9 @@
 </section>
 
 <!-- ══════════════ WHO WE'RE LOOKING FOR ══════════════ -->
-<section class="section" id="goals">
+<section class="section" id="seeking">
   <div class="anim-left">
-    <div class="section-label">03 — Team</div>
+    <div class="section-label">03 — Seeking</div>
     <h2 class="section-title">WHO WE'RE LOOKING FOR</h2>
   </div>
   <div class="project-list">
@@ -146,7 +178,7 @@
         <polygon points="0,5.5 10,11 10,22 0,16.5" fill="#0a0a0a"></polygon>
         <polygon points="10,11 20,5.5 20,16.5 10,22" fill="#303030"></polygon>
       </svg>
-      <span class="proj-name">Students with all ranges of experience.</span>
+      <span class="proj-name">Students with all ranges of experience</span>
     </div>
 
     <div class="proj-row anim-up d2" style="background-color: #4d9ddf;">
@@ -187,7 +219,7 @@
 </section>
 
 <!-- ══════════════ CONTACT ══════════════ -->
-<section class="section" id="join" style="background-color: #0c4370;color:var(--white);border-bottom:none;">
+<section class="section" id="contact" style="background-color: #0c4370;color:var(--white);border-bottom:none;">
   <div class="anim-right">
     <div class="section-label">04 — Contact</div>
     <h2 class="section-title" style="color: var(--orange);">REACH US</h2>
@@ -216,10 +248,11 @@
     </div>
   </div>
   <a href="https://ebms.mcmsnj.net/admissions/ai-robotics"><button class="Apply_Reach">Apply Now</button></a>
+  
+  <img src="../images/Logo_Footer.png" style="width: 450px; float: right; margin-top: -35%; margin-right: 7%;animation: jitter 2s ease;">
 </section>
-
 <footer>
-  <span>Antigravity · <strong style="font-weight:400;">East Brunswick AI & Robotics</strong> · East brunswick, NJ</span>
+  <span style="font-weight:800;">East Brunswick Magnet School · <strong style="font-weight:900;">East Brunswick AI & Robotics</strong> · East Brunswick, NJ</span>
   <a href="https://agraj.org" target="_blank" rel="noopener noreferrer">Career Major class within Middlesex County Magnet Schools.</a>
 </footer>
 
@@ -314,5 +347,5 @@ animEls.forEach(el => io.observe(el));
   requestAnimationFrame(draw);
 })();
 </script>
-
+<script src="script.js"></script>
 </body></html>
