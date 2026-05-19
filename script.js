@@ -56,7 +56,7 @@ async function loop() {
 loop();
 
 const TOTAL_FRAMES = 57;
-const SPEED = 0.2; // Lower = faster, Higher = slower. Try values like 0.1 to 1.0
+const SPEED = 1; // Lower = faster, Higher = slower. Try values like 0.1 to 1.0
 const frameImg = document.getElementById("robot-frame");
 
 function padded(n) {
