@@ -12,6 +12,7 @@ body{
   background:var(--dark_blue);color:var(--black);
   font-family:'Lato',sans-serif;overflow-x:hidden;
   font-size:22px;
+  zoom: 0.8;
 }
 
 /* ─── NAV ─── */
