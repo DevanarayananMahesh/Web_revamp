@@ -4,52 +4,36 @@
   --rule: rgba(0,0,0,1.0);
   --orange: #f9a136;
 }
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{
-  background:var(--dark_blue);color:var(--black);
-  font-family:'Lato',sans-serif;overflow-x:hidden;
-  font-size:22px;
-}
-
-/* ─── NAV ─── */
-.nav{
-  position:fixed;
-  width: 100%;
-  z-index: 600;
-  background:#e2e2e2;
-  backdrop-filter:blur(16px);
-  /* opacity: 1; */
-  border-bottom:1px solid var(--rule);
-  background-color: var(--orange);
-}
-/* .nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--black);} */
-.class_logo{
-  width: 8%;
-  height: 8%;
-  padding: 20px;
+body {
   margin: 0;
-  float: left;
+  background-color: var(--dark_blue);
+  color: white;
 }
-.nav-wordmark{font-family:'Bebas Neue',sans-serif;font-size:1.75rem;letter-spacing:5px;}
-.nav-logo-sub{font-family:'Space Mono',monospace;font-size:0.65rem;letter-spacing:2px;opacity:0.55;text-transform:uppercase;padding-left:2px;}
-.nav-links{
-  display:flex;
-  height: 100px;
-  gap:40px;
-  float: right;
+.nav {
+  width: 100%;
+  height: 6.2rem;
   background-color: var(--orange);
+}
+.logo_nav {
+  width: 10%;
+  height: 100%;
+  display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 1;
-  margin-right: 40px;
+  float: left;
 }
-.nav-links a{
-  font-family:'Space Mono',monospace;font-size:1rem;
-  letter-spacing:3px;text-transform:uppercase;
-  color:var(--rule);text-decoration:none;
+.logo_nav img {
+  width: 60%;
 }
-.nav-links a:hover{opacity:1;}
+.nav-links {
+  float: right;
+  width: 70%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
 .btn_nav {
   padding: 15px 33px;
   font-family:'Bebas Neue',sans-serif;
@@ -129,43 +113,92 @@ body{
 .btn_nav_apply:active {
   transform: scale(0.97);
 }
-.Apply_Hero {
-  padding: 20px 60px;
-  font-family:'Bebas Neue',sans-serif;
-  font-size: 28px;
-  letter-spacing: 0.04em;
-  border: none;
-  cursor: pointer;
+.teacher_card {
+  width: 35%;
+  background-color: #1995F8;
+  height: 78%;
+  margin-top: 2rem;
+  margin-left: 2rem;
   clip-path: polygon(
     0% 0%,
-    calc(100% - 8px) 0%,
-    100% 8px,
+    calc(100% - 35px) 0%,
+    100% 35px,
     100% 100%,
-    8px 100%,
-    0% calc(100% - 8px)
+    35px 100%,
+    0% calc(100% - 35px)
   );
-  animation: jitter 2s ease infinite;
-  outline: 1px solid var(--color-border-primary);
-  /* opacity: 2; */
-  /* outline-offset: -1px; */
-  background-color: #1995F8;
-  color: white !important;
-  transition: all 0.3s ease;
-  filter: brightness(1.05);
-  margin-left: 130px;
-  margin-top: 5.5px;
-}.Apply_Hero:hover{
-  transform: scale(1.05);
-  background-color: #207cc6;
-  clip-path: polygon(
-    8px 0%,
-    100% 0%,
-    100% calc(100% - 8px),
-    calc(100% - 8px) 100%,
-    0% 100%,
-    0% 8px
-  );
+  float: left;
+  display: flex;
+  justify-content: center;
 }
+.teacher_card img {
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+}.student_card {
+  width: 58%;
+  height: 78%;
+  margin-top: 4rem;
+  margin-right: 2rem;
+  float: right;
+}
+
+
+
+.dropdown {
+    background-color: var(--orange);
+    width: 100%;
+    overflow: hidden;
+    clip-path: polygon(
+      0% 0%,
+      calc(100% - 15px) 0%,
+      100% 15px,
+      100% 100%,
+      15px 100%,
+      0% calc(100% - 15px)
+    );
+  }
+
+  .dropdown h1 {
+    margin: 0;
+    padding: 0px 16px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 12vh;
+  }
+
+  .dropdown h1::after {
+    content: '▾';
+    transition: transform 0.2s ease;
+  }
+
+  .dropdown.open h1::after {
+    transform: rotate(180deg);
+  }
+
+  .content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+
+  .dropdown.open .content {
+    max-height: 300px;
+  }
+
+  .content p {
+    margin: 0;
+    padding: 0 16px 12px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+
 
 @keyframes jitter {
    0%, 100% { transform: translateY(0px) rotate(0deg); }

@@ -14,7 +14,9 @@ body{
   font-size:22px;
   zoom: 80%;
 }
-
+#robot-video {
+  width: 10px;
+}
 /* ─── NAV ─── */
 .nav{
   position:fixed;

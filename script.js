@@ -55,24 +55,16 @@ async function loop() {
 
 loop();
 
-const TOTAL_FRAMES = 57;
-const SPEED = 1; // Lower = faster, Higher = slower. Try values like 0.1 to 1.0
-const frameImg = document.getElementById("robot-frame");
+const video = document.getElementById("robot-video");
 
-function padded(n) {
-  return `images/frames/${String(n).padStart(4, '0')}.png`;
-}
-
-for (let i = 0; i < TOTAL_FRAMES; i++) {
-  const img = new Image();
-  img.src = padded(i);
-}
+video.addEventListener("loadedmetadata", () => {
+  video.pause();
+  video.currentTime = 0;
+});
 
 window.addEventListener("scroll", () => {
+  if (!video.duration) return;
   const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-  const scrolled = Math.min(Math.max(window.scrollY / (maxScroll * SPEED), 0), 1);
-  const frameIndex = Math.min(Math.round(scrolled * (TOTAL_FRAMES - 1)), TOTAL_FRAMES - 1);
-  frameImg.src = padded(frameIndex);
+  const progress = window.scrollY / maxScroll;
+  video.currentTime = video.duration * progress;
 }, { passive: true });
-
-window.dispatchEvent(new Event("scroll"));

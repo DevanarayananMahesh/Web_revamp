@@ -17,15 +17,39 @@ Use the mcmsnj website's thingy where caption dynamic pop up frfr yk what i mean
 </head>
 <body>
     <div class="nav">
-            <img src="../images/Logo_nav.png" class="class_logo">
+        <div class="logo_nav">
+            <img src="../images/Logo_nav.png" alt="">
+        </div>
         <div class="nav-links">
-            <a href="../index.html#about"><button class="btn_nav">About</button></a>
-            <a href="../index.html#what_we_do"><button class="btn_nav">What We Do</button></a>
-            <a href="../index.html#seeking"><button class="btn_nav">Seeking</button></a>
-            <a href="../index.html#contact"><button class="btn_nav">Contact</button></a>
-            <a href="../gallery_page/gallery.html"><button class="btn_nav">Gallery</button></a>
+             <a href="#about"><button class="btn_nav">About</button></a>
+            <a href="#what_we_do"><button class="btn_nav">What We Do</button></a>
+            <a href="#seeking"><button class="btn_nav">Seeking</button></a>
+            <a href="#contact"><button class="btn_nav">Contact</button></a>
+            <a href="gallery_page/gallery.html"><button class="btn_nav">Gallery</button></a>
+            <a href="/team_page/team.html"><button class="btn_nav">Team</button></a>
             <a href="https://ebms.mcmsnj.net/admissions/ai-robotics"><button class="btn_nav_apply">Apply Now</button></a>
         </div>
     </div>
+    <div class="bio">
+        <div class="teacher_card">
+            <img src="/team_page/bio_pics/brooks.PNG" alt="">
+        </div>
+        <div class="student_card">
+            
+            <div class="dropdown">
+                <h1>2026</h1>
+                <div class="content">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum fugit vel dolore vitae aliquam praesentium. Libero sunt facere dolore mollitia deleniti, suscipit, beatae pariatur corporis, voluptates explicabo recusandae ex voluptatem!</p>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <script>
+        document.querySelector('.dropdown h1').addEventListener('click', () => {
+        document.querySelector('.dropdown').classList.toggle('open');
+    });
+    </script>
 </body>
 </html>
