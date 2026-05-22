@@ -5,7 +5,9 @@
     <title>EBMS AI & Robotics</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Space+Mono:wght@400;700&amp;family=Lato:wght@300;400&amp;display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../images/Logo_Footer.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=close" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -13,12 +15,12 @@
 </head>
 <body>
     <!-------------------------------------------------------------------------------------------------------->
-    <!--                                           NAVBAR                                                   -->
+    <!--                                               NAVBAR                                               -->
     <!-------------------------------------------------------------------------------------------------------->
 
     <div class="nav">
         <div class="logo_nav">
-            <img src="../images/Logo_nav.png" alt="">
+            <a href="#hero"><img src="../images/Logo_nav.png" alt="Logo_nav"></a>
         </div>
         <div class="nav-links">
             <button class="nav_locator">About</button>
@@ -29,10 +31,38 @@
             <button class="nav_locator">Team</button>
             <button class="nav_apply">Apply Now</button>
         </div>
+        <div class="menu_icon">
+            <button class="menu_icon_btn" onclick="menu_open()">
+                <i class="fa fa-bars" id="menu_bar"></i>
+            </button>
+        </div>
     </div>
 
     <!-------------------------------------------------------------------------------------------------------->
-    <!--                                      HERO SECTION                                                  -->
+    <!--                                            MENU SECTION                                            -->
+    <!-------------------------------------------------------------------------------------------------------->
+
+
+    <div class="menu_overlay" id="menu_overlay" onclick="menu_close()"></div>
+    <div class="menu" id="menu">
+        <h1 class="header_menu">EBMS AI & Robotics</h1>
+        <button onclick="menu_close()" id="closeBTN"><span class="material-symbols-outlined" style="color: black;">close</span></button>
+
+        <div class="nav-links-menu">
+            <button class="nav_locator">About</button>
+            <button class="nav_locator">What We Do</button>
+            <button class="nav_locator">Seeking</button>
+            <button class="nav_locator">Contact</button>
+            <button class="nav_locator">Gallery</button>
+            <button class="nav_locator">Team</button>
+            <button class="nav_apply">Apply Now</button>
+        </div>
+    </div>
+
+
+
+    <!-------------------------------------------------------------------------------------------------------->
+    <!--                                            HERO SECTION                                            -->
     <!-------------------------------------------------------------------------------------------------------->
 
     <section id="hero">
@@ -50,7 +80,16 @@
         <div class="hero_right_items">
             <img src="../images/Frames/0001.png" alt="">
         </div>
+
+
+        <img src="../images/Frames/0001.png" class="phone_img_hero">
+
+
     </section>
+
+
     
+
+    <script src="script.js"></script>
 </body>
 </html>
