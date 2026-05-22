@@ -133,7 +133,6 @@ body {
   letter-spacing:4px;text-transform:uppercase;opacity:0.6;
   margin-bottom:42px;display:flex;align-items:center;gap:14px;
 }
-.section-label::after{content:'';width:38px;height:1px;background:currentColor;opacity:0.5;}
 
 .line1 {
   font-family: 'Bebas Neue', sans-serif;
@@ -192,7 +191,7 @@ body {
   transition: all 0.3s ease;
   filter: brightness(1.05);
   margin-left: 130px;
-  margin-top: 5.5px;
+  margin-top: 2rem;
 }
 .apply_hero:hover {
   transform: scale(1.05);
@@ -232,13 +231,3 @@ body {
   50% { transform: translateY(-7px) rotate(0.5deg); }
   60% { transform: translateY(-6px) rotate(-0.3deg); }
 }
-
-
-
-
-/* ------------------------------------------------------------------------------------------------------ */
-/*                                         MEDIA QUERIES                                                  */
-/* ------------------------------------------------------------------------------------------------------ */
-
-
- 
