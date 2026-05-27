@@ -9,11 +9,14 @@ body {
     background: var(--dark_blue);
     color: white;
 }
+html{scroll-behavior:smooth;}
+
 .nav {
   width: 100%;
   height: 6.21rem;
   background-color: var(--orange);
   position: fixed;
+  z-index: 9000;
 }
 .logo_nav {
   width: 9rem;
@@ -132,6 +135,14 @@ body {
 .menu_icon {
   display: none;
 }
+.nav-links-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  justify-content: space-evenly;  /* spreads buttons across available space */
+  flex: 1;                         /* takes all remaining height after the title */
+  margin-top: 0.5rem;
+}
 .nav-links-menu .nav_locator {
   padding: 1rem 2rem;
   font-family:'Bebas Neue',sans-serif;
@@ -149,6 +160,10 @@ body {
   transition: all 0.3s ease;
   width: 90%;
   font-weight: 500;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+  cursor: pointer;
 }
 .nav-links-menu .nav_apply {
   padding: 10px 18px;
@@ -175,6 +190,10 @@ body {
   color: white !important;
   transition: all 0.3s ease;
   filter: brightness(1.05);
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+  cursor: pointer;
 }.phone_img_hero {
   display: none;
 }
@@ -188,26 +207,29 @@ body {
 
 .menu {
   width: 90%;
-  height: 80%;
-  margin-top: 10%;
-  margin-right: 5%;
+  height: 90dvh;        /* fixed full height, no auto/min-height guessing */
+  max-height: 90dvh;
+  margin-top: 0;        /* remove this — it was pushing bottom out of view */
+  margin-right: 0;      /* remove this too */
+  top: 5dvh;            /* centered vertically with space top and bottom */
+  right: 2.5%;          /* replaces margin-right: 5% */
   background-color: #f9a136eb;
   border-left: 1px solid black;
   z-index: 800;
   position: fixed;
-  right: 0;
-  top: 0;
-  transform: translateY(-120%);
+  transform: translateY(-220%);
   transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  overflow-y: auto;
 }
 .header_menu {
-  float: left;
   font-family: 'Bebas Neue', sans-serif;
   font-size: 2rem;
   color: var(--dark_blue);
-  padding: 1rem 2rem;
-  margin-bottom: 0;
-  font-weight: 500;
+  margin-bottom: 1rem;
 }
 
 .menu_overlay {
@@ -223,17 +245,18 @@ body {
   transition: opacity 0.3s ease;
 }
 .menu button {
-  margin: 20px;
-  float: right;
   background: transparent;
   color: var(--dark_blue);
   font-weight: 800;
   border: transparent;
   padding: 10px;
   font-size: 1rem;
-  display: none;
-}.menu #closeBTN {
-  padding: 1.5rem;
+}
+.menu #closeBTN {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem;
 }
 
 
@@ -258,6 +281,9 @@ body {
   font-weight: 600;
   letter-spacing:4px;text-transform:uppercase;opacity:0.6;
   margin-bottom:42px;display:flex;align-items:center;gap:14px;
+}
+.changing_text {
+  height: 48%;
 }
 
 .line1 {
@@ -284,6 +310,17 @@ body {
   color: transparent;
   /* font-size: clamp(72px, 10vw, 140px); */
 }
+
+.cursor {
+  display: inline-block;
+  width: 3px;
+  background-color: #b0dbff;
+  margin-left: .5rem;
+  animation: blink 0.7s step-end infinite;
+  vertical-align: baseline;
+  height: clamp(0rem, 8vw, 5rem);
+}
+
 .hero-sub{
   margin-top:28px;
   font-size:1rem;
@@ -345,6 +382,89 @@ body {
 
 
 
+
+
+/* ------------------------------------------------------------------------------------------------------ */
+/*                                           RULE ROW                                                     */
+/* ------------------------------------------------------------------------------------------------------ */
+
+
+
+
+
+.rule-row {
+  background-color: #0c4370;
+  border-top: 1px solid var(--dark_blue);
+  border-bottom: 1px solid var(--dark_blue);
+  overflow: hidden;
+  margin-top: 5.75rem;
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker-scroll 18s linear infinite;
+  background-color: #0c4370; /* ensures track bg matches row */
+}
+
+.rule-item {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #e8f4ff;
+  padding: 18px 28px;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  white-space: nowrap;
+  flex-shrink: 0; /* ← ADD THIS */
+}
+
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+/* ─── STATS ─── */
+.stats-bar{
+  background:var(--black);color:var(--dark_blue);
+  display:grid;grid-template-columns:repeat(3,1fr);
+  background-color: #4d9ddf;
+}
+.stat{
+  padding:52px 32px;
+  text-align:center;
+  border-right:var(--dark_blue);
+}
+.stat:last-child{border-right:none;}
+.stat-num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(3rem,5vw,5rem);
+  letter-spacing:-1px;line-height:1;display:block;color:var(--dark_blue);
+}
+.stat-label{
+  font-family:'Space Mono',monospace;font-size:0.9rem;
+  letter-spacing:3px;text-transform:uppercase;opacity:0.65;
+  margin-top:10px;display:block;
+}
+
+
+
+/* ------------------------------------------------------------------------------------------------------ */
+/*                                           ABOUT PAGE                                                   */
+/* ------------------------------------------------------------------------------------------------------ */
+
+
+#about {
+  width: 90%;
+  margin: 0 auto; /* ← this is all you need */
+  height: 50%;
+  background-color: #071A36;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
 /* ------------------------------------------------------------------------------------------------------ */
 /*                                           ANIMATIONS                                                   */
 /* ------------------------------------------------------------------------------------------------------ */
@@ -356,4 +476,15 @@ body {
   40% { transform: translateY(-6px) rotate(-0.5deg); }
   50% { transform: translateY(-7px) rotate(0.5deg); }
   60% { transform: translateY(-6px) rotate(-0.3deg); }
+}
+
+
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }

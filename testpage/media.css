@@ -1,15 +1,8 @@
-/* ------------------------------------------------------------------------------------------------------ */
-/*                                         MEDIA QUERIES                                                  */
-/* ------------------------------------------------------------------------------------------------------ */
 
 
-/* ==========================================================================
-   EXTREME SCALING / MOBILE BREAKPOINT
-   Activates when available space drops below ~576px (36em) 
-   due to 250%+ zoom or physical mobile screens.
-   ========================================================================== */
+/* Phones only: up to 36em */
 @media (max-width: 36em) {
-    /* * {border: 1px solid red;} */
+  /* * {border: 1px solid red;} */
   body {
     padding-top: 1rem;
     overflow: hidden;
@@ -53,29 +46,52 @@
   }.menu button {
     display: block;
   }
-
-
-
-
 }
 
-
-
-
-/* ==========================================================================
-   HEAVY DISPLAY SCALING / ZOOM / TABLET BREAKPOINT
-   Activates when available space drops below ~992px (62em) 
-   due to 150%–200% zoom or smaller physical displays.
-   ========================================================================== */
-@media (max-width: 62em) {
-
-}
-
-/* ==========================================================================
-   HIGH-DPI / RETINA / SYSTEM SCALING DETECTION
-   Targets screens with a high pixel density ratio (200% scaling or higher)
-   regardless of the screen width.
-   ========================================================================== */
-@media (resolution >= 2x) {
-
+/* Tablets only: 36em → 62em, NO overlap with phones */
+@media (min-width: 36.0625em) and (max-width: 62em) {
+  body {
+    padding-top: 1.5rem;
+    overflow: hidden;
+  }
+  .nav {
+    width: 100%;
+    height: 10%;
+    position: fixed;
+  }
+  .nav-links {
+    display: none;
+  }
+  .line1, .line2 {
+    font-size: 6rem;
+    width: 100vw;
+  }.line2 {
+    font-size: 4.5rem;
+  }
+  .hero_right_items {
+    display: none;
+  }#hero {
+    padding: 12rem 2rem;
+    width: 100%;
+  }.hero-sub {
+    width: 95vw;
+  }
+  .apply_hero {
+    width: 100vw;
+    margin: 0;
+    margin-top: 1rem;
+  }.logo_nav {
+    margin-left: 1rem;
+  }
+  .menu_icon {
+    display: flex;
+  }.phone_img_hero {
+    width: 100%;
+    margin-top: -5rem;
+    display: block;
+    transform: translateY(-10%);
+    clip-path: inset(5rem 0 0 0);
+  }.menu button {
+    display: block;
+  }
 }
