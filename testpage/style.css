@@ -39,7 +39,7 @@ html{scroll-behavior:smooth;}
 .nav-links {
   float: right;
   height: 100%;
-  width: 70%;
+  width: 63rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -446,6 +446,153 @@ html{scroll-behavior:smooth;}
   margin-top:10px;display:block;
 }
 
+/* ------------------------------------------------------------------------------------------------------ */
+/*                                    INFO DIVIDER PAGE                                                   */
+/* ------------------------------------------------------------------------------------------------------ */
+
+
+.info_panels {
+  width: 90%;
+  height: 18rem;
+  background-color: #0000002f;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 2rem;
+  border-radius: 1.5rem;
+  gap: 2rem;
+  border: .1px solid rgb(57, 70, 94);
+}
+.pannel {
+  width: 25rem;
+  height: 18rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+    .scene {
+      min-height: 340px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 0;
+    }
+ 
+    .chart-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+ 
+    .ring-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin-bottom: -2rem;
+    }
+ 
+    .ring-container svg {
+      width: 200px;
+      height: 200px;
+      transform: rotate(-90deg);
+    }
+ 
+    .ring-bg {
+      fill: none;
+      stroke: #ffffff2d;
+      stroke-width: 14;
+    }
+    .pannel .heading {
+      font-weight: 10;
+      font-family:'Bebas Neue', sans-serif;
+      color: white;
+      -webkit-text-stroke: .1rem #0c4370;
+    }
+ 
+    .ring-fill {
+      fill: none;
+      stroke: var(--orange);
+      stroke-width: 14;
+      stroke-linecap: butt;
+      stroke-dasharray: 0 565;
+      transition: stroke-dasharray 3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+ 
+    .ring-fill.animated {
+      stroke-dasharray: 90 565;
+    }
+ 
+    .center-label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+    } 
+ 
+    .pct-num {
+      font-size: 40px;
+      font-weight: 500;
+      font-family:'Bebas Neue',sans-serif;
+      color: white;
+      -webkit-text-stroke: .1rem #0c4370;
+      font-variant-numeric: tabular-nums;
+    }
+ 
+    .pct-sym {
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: #888;
+      margin-left: .3rem;
+      font-family:'Bebas Neue',sans-serif;
+    }
+ 
+    .label-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #666;
+    }
+ 
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      background: #378ADD;
+      flex-shrink: 0;
+    }
+    .bar-fill {
+      font-size: 4px;
+    }
+    .pannel .grade_levels {
+      font-family:'Bebas Neue',sans-serif;
+      font-size: 30;
+      color: var(--orange);
+      word-spacing: .5rem;
+    }
+    .pannel .grade_heading {
+      font-weight: 10;
+      font-family:'Bebas Neue', sans-serif;
+      color: white;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      margin-top: -2rem;
+      -webkit-text-stroke: .1rem #0c4370;
+    }
+    .grant_num .grant_num_h1 {
+      font-family: "Antonio", sans-serif;
+      gap: -2px;
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--orange);
+    }
+ 
+
 
 
 /* ------------------------------------------------------------------------------------------------------ */
@@ -455,12 +602,99 @@ html{scroll-behavior:smooth;}
 
 #about {
   width: 90%;
-  margin: 0 auto; /* ← this is all you need */
-  height: 50%;
+  margin: 3rem auto 0 auto; 
+  height: 500px; 
   background-color: #071A36;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden; 
+}
+
+.class_img {
+  height: 100%;
+  width: 44.5rem;
+}
+
+.class_img img {
+  height: 100%;
+  width: 100%;
+  border-radius: 2rem;
+  border: .4rem solid #1995F8;
+  object-fit: cover;
+}
+
+/* --- THE CARD STACK CONTAINER --- */
+.card-stack {
+  position: relative;
+  width: 30rem;
+  height: 100%; 
+  margin-left: 5rem;
+  
+  /* Creates a uniform shadow around all 3 layered cards as if they are one shape */
+  filter: drop-shadow(0px 15px 30px rgba(0, 0, 0, 0.5));
+}
+
+#about .card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30rem;
+  height: 100%;
+  background-color: #1995F8;
+  padding: 2rem;
+  box-sizing: border-box;
+  color: #fff;
+  border-radius: 8px;
+  
+  clip-path: polygon(
+    0% 0%,
+    calc(100% - 30px) 0%,
+    100% 30px,
+    100% 100%,
+    30px 100%,
+    0% calc(100% - 30px)
+  );  
+
+  /* 1.2s Slower Deliberate Speed */
+  transition: 
+    transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), 
+    z-index 1.2s step-end, 
+    visibility 1.2s step-end; 
+}
+
+/* --- INFINITE SWIPER LAYERS --- */
+
+/* Front Card */
+.card.active {
+  z-index: 3;
+  transform: translate(0, 0) scale(1);
+  visibility: visible;
+}
+
+/* Middle Card */
+.card.next {
+  z-index: 2;
+  transform: translate(15px, 15px) scale(0.95);
+  visibility: visible;
+}
+
+/* Back Card - Instantly invisible so it doesn't ghost when sliding back */
+.card.last {
+  z-index: 1;
+  transform: translate(30px, 30px) scale(0.9);
+  visibility: hidden; 
+}
+
+/* --- THE MOTION STATE --- */
+.card.swipe-away {
+  transform: translate(130%, -30px) rotate(15deg) scale(0.95);
+  z-index: 4;
+  visibility: visible;
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1); 
 }
 
 

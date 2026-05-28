@@ -1,21 +1,16 @@
 function menu_open() {
     menu = document.getElementById("menu");
     overlay = document.getElementById("menu_overlay");
-
-    menu.style = "transform: translateY(0%);"
-    overlay.style = "opacity:1;"
+    menu.style = "transform: translateY(0%);";
+    overlay.style = "opacity:1;";
 }
+
 function menu_close() {
     menu = document.getElementById("menu");
     overlay = document.getElementById("menu_overlay");
-
-    menu.style = "transform: translateY(-220%);"
-    overlay.style = "opacity:0;"
+    menu.style = "transform: translateY(-220%);";
+    overlay.style = "opacity:0;";
 }
-
-
-
-
 
 const sequences = [
   { line1: "EB Magnet", line2: "AI & Robotics" },
@@ -40,10 +35,9 @@ async function sleep(ms) {
   return new Promise(r => setTimeout(r, ms));
 }
 
-
 async function typeText(el, text) {
   el.appendChild(cursor);
-  for (let i = 0; i <= text.length; i++) {
+  for (let i = 1; i <= text.length; i++) {
     el.textContent = text.slice(0, i);
     el.appendChild(cursor);
     await sleep(TYPE_SPEED);
@@ -76,15 +70,132 @@ async function loop() {
 loop();
 
 const video = document.getElementById("robot-video");
+if (video) {
+  video.addEventListener("loadedmetadata", () => {
+    video.pause();
+    video.currentTime = 0;
+  });
 
-video.addEventListener("loadedmetadata", () => {
-  video.pause();
-  video.currentTime = 0;
-});
+  window.addEventListener("scroll", () => {
+    if (!video.duration) return;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = window.scrollY / maxScroll;
+    video.currentTime = video.duration * progress;
+  }, { passive: true });
+}
 
-window.addEventListener("scroll", () => {
-  if (!video.duration) return;
-  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = window.scrollY / maxScroll;
-  video.currentTime = video.duration * progress;
-}, { passive: true });
+const ring = document.getElementById('ring');
+const counter = document.getElementById('counter');
+const target = 16;
+let animated = false;
+
+function animateCounter(from, to, duration) {
+  const start = performance.now();
+  function step(now) {
+    const p = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - p, 4);
+    counter.textContent = Math.round(from + (to - from) * ease);
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+function trigger() {
+  if (animated) return;
+  animated = true;
+  ring.classList.add('animated');
+  animateCounter(0, target, 3500);
+}
+
+const scene = document.querySelector('.scene');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) trigger(); });
+}, { threshold: 0.1 });
+obs.observe(scene);
+
+setTimeout(() => {
+  const rect = scene.getBoundingClientRect();
+  if (rect.top < window.innerHeight && rect.bottom > 0) trigger();
+}, 100);
+
+
+
+
+
+
+
+
+const grantCounter = document.getElementById("grant_num_pannel");
+
+const grantTarget = 375000;
+const grantDuration = 2300; // 2 seconds
+
+function animateGrantCounter() {
+  const startTime = performance.now();
+
+  function update(currentTime) {
+    const elapsed = currentTime - startTime;
+
+    // progress from 0 → 1
+    const progress = Math.min(elapsed / grantDuration, 1);
+
+    // smooth linear counting
+    const value = Math.floor(progress * grantTarget);
+
+    // adds commas: 375,000
+    grantCounter.textContent = value.toLocaleString();
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    }
+  }
+
+  requestAnimationFrame(update);
+}
+
+animateGrantCounter();
+
+
+
+
+
+
+const cards = document.querySelectorAll('#about .card');
+
+// Correct array order mapping for a seamless, unglitched 3-card forward loop
+let positions = ['active', 'next', 'last'];
+
+function updateStackDisplay() {
+  cards.forEach((card, index) => {
+    card.classList.remove('active', 'next', 'last');
+    card.classList.add(positions[index]);
+  });
+}
+
+// Initialize layout positioning
+updateStackDisplay();
+
+function triggerSwipe() {
+  const activeCard = document.querySelector('#about .card.active');
+  
+  if (!activeCard) return;
+
+  // 1. Swing front card out to the side (fully visible)
+  activeCard.classList.add('swipe-away');
+  
+  // 2. HALFWAY TIMING POINT (600ms): Card reaches max distance
+  setTimeout(() => {
+    // Take the front class and throw it to the back end of the array.
+    // This maintains perfect infinite rotational symmetry for 3 items.
+    positions.push(positions.shift());
+    
+    updateStackDisplay();
+    
+    // Strips the swipe class so it returns to home position.
+    // Because it instantly maps to '.last', it becomes invisible for the trek home.
+    activeCard.classList.remove('swipe-away');
+  }, 600); 
+}
+
+// Completely automated carousel clock looping every 4 seconds
+setInterval(triggerSwipe, 4000);

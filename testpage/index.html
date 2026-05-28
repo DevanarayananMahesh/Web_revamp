@@ -12,6 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="media.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-------------------------------------------------------------------------------------------------------->
@@ -85,7 +88,11 @@
         <img src="../images/Frames/0001.png" class="phone_img_hero">
     </section>
 
-<!-- RULE ROW -->
+<!-------------------------------------------------------------------------------------------------------->
+<!--                                     RULE ROW SECTION                                               -->
+<!-------------------------------------------------------------------------------------------------------->
+
+
 <div class="rule-row">
   <div class="ticker-track">   <!-- ADD THIS -->
     <span class="rule-item">East Brunswick, NJ</span>
@@ -102,6 +109,51 @@
   </div>              <!-- ADD THIS -->
 </div>
 
+<!-------------------------------------------------------------------------------------------------------->
+<!--                                      INFO DIVIDER SECTION                                          -->
+<!-------------------------------------------------------------------------------------------------------->
+
+
+<div class="info_panels">
+  <div class="pannel" style="flex-direction: column;">
+    <div class="grade_levels">
+      <h1>9 - 12</h1>
+    </div>
+    <div class="grade_heading">
+      <span>grades</span>
+    </div>
+  </div>
+
+  <div class="pannel">
+    <div class="scene">
+      <div class="chart-wrap">
+        <div class="ring-container">
+          <svg viewBox="0 0 200 200" aria-hidden="true">
+            <circle class="ring-bg" cx="100" cy="100" r="82"/>
+            <circle class="ring-fill" id="ring" cx="100" cy="100" r="82"/>
+          </svg>
+          <div class="center-label">
+            <span class="pct-num" id="counter">16</span><span class="pct-sym">%</span>
+          </div>
+        </div>
+        <h1 class="heading">Acceptance Rate</h1>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="pannel" style="flex-direction: column;">
+    <div class="grant_num">
+      <h1 class="grant_num_h1">
+        <span>$</span>
+        <span id="grant_num_pannel">0</span>
+      </h1>
+    </div>
+    <div class="grade_heading">
+      <span>Grant</span>
+    </div>
+  </div>
+</div>
 
 
 <!-------------------------------------------------------------------------------------------------------->
@@ -109,7 +161,24 @@
 <!-------------------------------------------------------------------------------------------------------->
 
 <section id="about">
-    
+  <div class="class_img">
+    <img src="../images/Class_photo.jpg" alt="Class Photo">
+  </div>
+  
+  <div class="card-stack">
+    <div class="card card-1">
+      <h2>Card 1</h2>
+      <p>This is the front facing content layer.</p>
+    </div>
+    <div class="card card-2">
+      <h2>Card 2</h2>
+      <p>This is the middle layer content.</p>
+    </div>
+    <div class="card card-3">
+      <h2>Card 3</h2>
+      <p>This is the background layer content.</p>
+    </div>
+  </div>
 </section>
 
 
