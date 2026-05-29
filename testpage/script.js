@@ -143,7 +143,7 @@ function animateGrantCounter() {
     const value = Math.floor(progress * grantTarget);
 
     // adds commas: 375,000
-    grantCounter.textContent = value.toLocaleString();
+    grantCounter.textContent = value.toLocaleString('de-DE');
 
     if (progress < 1) {
       requestAnimationFrame(update);
@@ -157,45 +157,31 @@ animateGrantCounter();
 
 
 
+const cards = Array.from(document.querySelectorAll('.card'));
+let orderIndex = 0;
 
-
-
-const cards = document.querySelectorAll('#about .card');
-
-// Correct array order mapping for a seamless, unglitched 3-card forward loop
-let positions = ['active', 'next', 'last'];
-
-function updateStackDisplay() {
-  cards.forEach((card, index) => {
-    card.classList.remove('active', 'next', 'last');
-    card.classList.add(positions[index]);
+function applyPositions() {
+  const positions = ['front', 'middle', 'back'];
+  cards.forEach((card, i) => {
+    card.classList.remove('front', 'middle', 'back');
+    card.classList.add(positions[(i - orderIndex + cards.length) % cards.length]);
   });
 }
 
-// Initialize layout positioning
-updateStackDisplay();
+applyPositions();
 
-function triggerSwipe() {
-  const activeCard = document.querySelector('#about .card.active');
-  
-  if (!activeCard) return;
 
-  // 1. Swing front card out to the side (fully visible)
-  activeCard.classList.add('swipe-away');
-  
-  // 2. HALFWAY TIMING POINT (600ms): Card reaches max distance
+function cycle() {
+  const frontCard = cards[orderIndex % cards.length];
+
+  frontCard.classList.remove('front');
+  frontCard.classList.add('flying');
+
   setTimeout(() => {
-    // Take the front class and throw it to the back end of the array.
-    // This maintains perfect infinite rotational symmetry for 3 items.
-    positions.push(positions.shift());
-    
-    updateStackDisplay();
-    
-    // Strips the swipe class so it returns to home position.
-    // Because it instantly maps to '.last', it becomes invisible for the trek home.
-    activeCard.classList.remove('swipe-away');
-  }, 600); 
+    orderIndex = (orderIndex + 1) % cards.length;
+    applyPositions();
+    frontCard.classList.remove('flying');
+  }, 500);
 }
 
-// Completely automated carousel clock looping every 4 seconds
-setInterval(triggerSwipe, 4000);
+setInterval(cycle, 7500);
