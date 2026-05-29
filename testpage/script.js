@@ -12,6 +12,10 @@ function menu_close() {
     overlay.style = "opacity:0;";
 }
 
+// --------------------------------------------------------------------------------------------
+//                                HERO HEAD TEXT ANIMATION
+// --------------------------------------------------------------------------------------------
+
 const sequences = [
   { line1: "EB Magnet", line2: "AI & Robotics" },
   { line1: "The Future", line2: "Of Tech" }
@@ -69,24 +73,13 @@ async function loop() {
 
 loop();
 
-const video = document.getElementById("robot-video");
-if (video) {
-  video.addEventListener("loadedmetadata", () => {
-    video.pause();
-    video.currentTime = 0;
-  });
-
-  window.addEventListener("scroll", () => {
-    if (!video.duration) return;
-    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = window.scrollY / maxScroll;
-    video.currentTime = video.duration * progress;
-  }, { passive: true });
-}
+// --------------------------------------------------------------------------------------------
+//                              CIRCLE CHART ANIMATION
+// --------------------------------------------------------------------------------------------
 
 const ring = document.getElementById('ring');
 const counter = document.getElementById('counter');
-const target = 16;
+const ringTarget = 16;
 let animated = false;
 
 function animateCounter(from, to, duration) {
@@ -104,7 +97,7 @@ function trigger() {
   if (animated) return;
   animated = true;
   ring.classList.add('animated');
-  animateCounter(0, target, 3500);
+  animateCounter(0, ringTarget, 3500);
 }
 
 const scene = document.querySelector('.scene');
@@ -118,36 +111,23 @@ setTimeout(() => {
   if (rect.top < window.innerHeight && rect.bottom > 0) trigger();
 }, 100);
 
-
-
-
-
-
-
+// --------------------------------------------------------------------------------------------
+//                               GRANT NUMBER ANIMATION
+// --------------------------------------------------------------------------------------------
 
 const grantCounter = document.getElementById("grant_num_pannel");
-
 const grantTarget = 375000;
-const grantDuration = 2300; // 2 seconds
+const grantDuration = 2300;
 
 function animateGrantCounter() {
-  const startTime = performance.now();
+  const grantStart = performance.now();
 
   function update(currentTime) {
-    const elapsed = currentTime - startTime;
-
-    // progress from 0 → 1
+    const elapsed = currentTime - grantStart;
     const progress = Math.min(elapsed / grantDuration, 1);
-
-    // smooth linear counting
     const value = Math.floor(progress * grantTarget);
-
-    // adds commas: 375,000
     grantCounter.textContent = value.toLocaleString('de-DE');
-
-    if (progress < 1) {
-      requestAnimationFrame(update);
-    }
+    if (progress < 1) requestAnimationFrame(update);
   }
 
   requestAnimationFrame(update);
@@ -155,33 +135,55 @@ function animateGrantCounter() {
 
 animateGrantCounter();
 
+// --------------------------------------------------------------------------------------------
+//                                    ABOUT CARD STACK ANIMATION
+// --------------------------------------------------------------------------------------------
 
-
-const cards = Array.from(document.querySelectorAll('.card'));
+const stackCards = Array.from(document.querySelectorAll('.card'));
 let orderIndex = 0;
 
 function applyPositions() {
   const positions = ['front', 'middle', 'back'];
-  cards.forEach((card, i) => {
+  stackCards.forEach((card, i) => {
     card.classList.remove('front', 'middle', 'back');
-    card.classList.add(positions[(i - orderIndex + cards.length) % cards.length]);
+    card.classList.add(positions[(i - orderIndex + stackCards.length) % stackCards.length]);
   });
 }
 
 applyPositions();
 
-
 function cycle() {
-  const frontCard = cards[orderIndex % cards.length];
-
+  const frontCard = stackCards[orderIndex % stackCards.length];
   frontCard.classList.remove('front');
   frontCard.classList.add('flying');
 
   setTimeout(() => {
-    orderIndex = (orderIndex + 1) % cards.length;
+    orderIndex = (orderIndex + 1) % stackCards.length;
     applyPositions();
     frontCard.classList.remove('flying');
   }, 500);
 }
 
 setInterval(cycle, 7500);
+
+// --------------------------------------------------------------------------------------------
+//                                    BANNER LOGOS
+// --------------------------------------------------------------------------------------------
+
+const imgs = [
+  "../images/banner_logos/vscode.png",
+  "../images/banner_logos/python.png",
+  "https://picsum.photos/id/1047/80/80",
+  "https://picsum.photos/id/1060/80/80",
+  "https://picsum.photos/id/1062/80/80",
+];
+
+const track = document.getElementById("bannerTrack");
+const imgCount = 120;
+
+for (let i = 0; i < imgCount * 2; i++) {
+  const img = document.createElement("img");
+  img.src = imgs[i % imgs.length];
+  img.alt = "";
+  track.appendChild(img);
+}
