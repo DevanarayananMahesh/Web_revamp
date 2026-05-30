@@ -697,6 +697,7 @@ html{scroll-behavior:smooth;}
   border: .5px solid grey;
   object-fit: cover;
   float: left;
+  filter: saturate(200%) sepia(20%);
 }
 
 .stack {
@@ -844,6 +845,7 @@ html{scroll-behavior:smooth;}
 /* ------------------------------------------------------------------------------------------------------ */
 
 #what_we_do {
+  scroll-margin-top: 2rem;
   width: 100%;
   height: 57rem;
   display: flex;
@@ -854,7 +856,6 @@ html{scroll-behavior:smooth;}
   position: relative;
   overflow: hidden;
 }
-
 .slider_carousel {
   width: 40rem;
   height: 100%;
@@ -868,47 +869,121 @@ html{scroll-behavior:smooth;}
   width: 34rem;
   border-radius: 5rem;
   object-fit: cover;
+  filter: saturate(200%) sepia(20%);
+}
+.team-card_anim-up {
+  width: 25rem;
+  margin-top: 8rem;
 }
 
+.tc-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #36a5ff;
+  letter-spacing: .4rem;
+  -webkit-text-stroke: 1px #0d2e5f; 
+  margin-bottom: 2rem;
+}
 
-.tc-division,.tc-name,.tc-desc,
-.tc-tag{
-  color:white;
-  border-color:rgb(255, 255, 255);
-  opacity:1 !important;
+.tc-name span {
+  font-size: 4rem;
 }
-.tc-hex{
-  margin-bottom:24px;
-  display:block;
-  transition:transform 0.4s;
+.tc-desc {
+  font-family: "Inter", sans-serif;
+  font-weight: 100;
 }
-.tc-division{
-  font-family:'Space Mono',monospace;
-  font-size:0.68rem;
-  letter-spacing:3px;
-  opacity:0.6;
-  margin-bottom:14px;
-  transition:color 0.45s,opacity 0.45s;
+.tc-tags {margin-top: 2rem; display:flex; gap: .5rem;}
+.tc-tag {
+  padding: 1rem;
+  border: 1px solid #ffbe6e;
+  font-weight: 100;
+  color: #ffbe6e;
+  font-family: "Inter", sans-serif;
 }
-.tc-name{
+.tc_logo_deck {
+  width: 90%;
+  height: 15rem;
+  margin-top: 3rem;
+  background-color: rgba(128, 128, 128, 0.18);
+  border: 1px solid rgba(128, 128, 128, 0.42);
+  border-radius: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  align-items: center;
+  justify-content: center;
+}
+.tc_logo_deck img {
+  width: calc((100% - 4rem) / 3); /* 3 per row */
+  height: 4rem;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
+}
+.tc_logo_deck img:hover {
+  filter: grayscale(0%);
+  transform: scale(0.9);
+}
+.tc_next {
+  padding: 1rem 4rem;
+  background-color: #1995F8;
+  color: #050e1f;
+  font-weight: 500;
+  border: 1px solid transparent;
+  transform: scale(1);
+  transition: all 0.3s ease;
+  width: 90%;
+  margin-top: 2rem;
+  clip-path: polygon(
+    0% 0%,
+    calc(100% - 8px) 0%,
+    100% 8px,
+    100% 100%,
+    8px 100%,
+    0% calc(100% - 8px)
+  );  
+}.tc_next:hover {
+  clip-path: polygon(
+    8px 0%,
+    100% 0%,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    0% 100%,
+    0% 8px
+  );
+  background-color: #071A36;
+  border: 1px solid #1995F8;
+  color: #1995F8;
+}
+.slide {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: flex-start;
+  transform: translateX(0rem);
+}
+.heading_whatwedo {
+  padding: 1rem 2rem;
   font-family:'Bebas Neue',sans-serif;
-  font-size:2.4rem;
-  letter-spacing:2px;
-  margin-bottom:18px;
-  line-height:1;
-  transition:color 0.45s;
+  letter-spacing: 1px;
+  border: 1px solid transparent;
+  background-color: var(--orange);
+  clip-path: polygon(
+    0% 0%,
+    calc(100% - 10%) 0%,
+    100% 100%,
+    100% 100%,
+    10% 100%,
+    0% calc(100% - 100%)
+  );  
+  transition: all 0.3s ease;
+  margin-top: 6rem;
+  width: 90%;
+  margin-bottom: -6rem;
 }
-.tc-desc{font-size:1.2rem;line-height:1.8;opacity:0.75;font-weight:600;transition:color 0.45s,opacity 0.45s;}
-.tc-tags{margin-top:24px;display:flex;flex-wrap:wrap;gap:8px;}
-.tc-tag{
-  font-family:'Space Mono',monospace;font-size:0.9rem;
-  letter-spacing:2px;text-transform:uppercase;
-  border:1px solid white;padding:6px 14px;opacity:0.7;
-  transition:color 0.45s,border-color 0.45s,opacity 0.45s;
-}
-
-
-
 /* ------------------------------------------------------------------------------------------------------ */
 /*                                           ANIMATIONS                                                   */
 /* ------------------------------------------------------------------------------------------------------ */
