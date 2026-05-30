@@ -187,3 +187,14 @@ for (let i = 0; i < imgCount * 2; i++) {
   img.alt = "";
   track.appendChild(img);
 }
+
+
+
+
+
+
+
+
+
+
+
