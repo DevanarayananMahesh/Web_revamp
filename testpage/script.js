@@ -148,8 +148,9 @@ const slides = [
 
 function updateSlides() {
   slides.forEach((slide, index) => {
-    slide.style.transform =
-      `translateX(${(index - currentSlide) * 80}rem)`;
+    slide.style.transform = `translateX(${(index - currentSlide) * 100}%)`;
+    slide.style.opacity = index === currentSlide ? '1' : '0';
+    slide.style.pointerEvents = index === currentSlide ? 'all' : 'none';
   });
 }
 
@@ -200,25 +201,3 @@ function cycle() {
 }
 
 setInterval(cycle, 7500);
-
-// --------------------------------------------------------------------------------------------
-//                                    BANNER LOGOS
-// --------------------------------------------------------------------------------------------
-
-const imgs = [
-  "../images/banner_logos/vscode.png",
-  "../images/banner_logos/python.png",
-  "https://picsum.photos/id/1047/80/80",
-  "https://picsum.photos/id/1060/80/80",
-  "https://picsum.photos/id/1062/80/80",
-];
-
-const track = document.getElementById("bannerTrack");
-const imgCount = 120;
-
-for (let i = 0; i < imgCount * 2; i++) {
-  const img = document.createElement("img");
-  img.src = imgs[i % imgs.length];
-  img.alt = "";
-  track.appendChild(img);
-}
