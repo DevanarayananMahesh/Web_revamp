@@ -1,5 +1,6 @@
 :root {
-  --dark_blue: #071A36;
+  /* --dark_blue: #071A36; */
+  --dark_blue: #071934;
   --orange: #f9a136;
 }
 
@@ -926,17 +927,32 @@ html{scroll-behavior:smooth;}
 .tc_logo_deck img:hover {
   filter: grayscale(0%);
   transform: scale(0.9);
-}
-.tc_next {
+}.tc_next {
   padding: 1rem 4rem;
-  background-color: #1995F8;
-  color: #050e1f;
-  font-weight: 500;
-  border: 1px solid transparent;
-  transform: scale(1);
-  transition: all 0.3s ease;
   width: 90%;
   margin-top: 2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .75rem;
+
+  background: linear-gradient(
+    135deg,
+    #36a5ff 0%,
+    #1995F8 50%,
+    #0d6bb5 100%
+  );
+
+  color: white;
+  font-family: 'Space Mono', monospace;
+  font-size: .9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  border: 1px solid rgba(255,255,255,.08);
+  cursor: pointer;
+
   clip-path: polygon(
     0% 0%,
     calc(100% - 8px) 0%,
@@ -944,27 +960,59 @@ html{scroll-behavior:smooth;}
     100% 100%,
     8px 100%,
     0% calc(100% - 8px)
-  );  
-}.tc_next:hover {
-  clip-path: polygon(
-    8px 0%,
-    100% 0%,
-    100% calc(100% - 8px),
-    calc(100% - 8px) 100%,
-    0% 100%,
-    0% 8px
   );
-  background-color: #071A36;
-  border: 1px solid #1995F8;
-  color: #1995F8;
+
+  box-shadow:
+    0 0 0 1px rgba(54,165,255,.2),
+    0 8px 24px rgba(25,149,248,.25),
+    inset 0 1px rgba(255,255,255,.15);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    background .25s ease;
 }
+
+.tc_next:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 0 0 1px rgba(54,165,255,.4),
+    0 12px 32px rgba(25,149,248,.4),
+    0 0 20px rgba(25,149,248,.3);
+
+  background: linear-gradient(
+    135deg,
+    #4db2ff 0%,
+    #1995F8 50%,
+    #0d6bb5 100%
+  );
+}
+
+.tc_next:active {
+  transform: translateY(1px) scale(.98);
+}
+
 .slide {
-  display: flex;
+  position: absolute;
   width: 100%;
   height: 100%;
-  align-items: flex-start;
-  transform: translateX(0rem);
+  transition: transform 0.5s ease;
 }
+
+#slide_tracker {
+  display: flex;
+  width: 300%;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  width: 33.333%;
+  flex-shrink: 0;
+  display: flex;
+}
+
 .heading_whatwedo {
   padding: 1rem 2rem;
   font-family:'Bebas Neue',sans-serif;
