@@ -138,6 +138,41 @@ animateGrantCounter();
 // --------------------------------------------------------------------------------------------
 //                                    ABOUT CARD STACK ANIMATION
 // --------------------------------------------------------------------------------------------
+let currentSlide = 0;
+
+const slides = [
+  document.getElementById("slide_engineering"),
+  document.getElementById("slide_programming"),
+  document.getElementById("slide_capstone")
+];
+
+function updateSlides() {
+  slides.forEach((slide, index) => {
+    slide.style.transform =
+      `translateX(${(index - currentSlide) * 80}rem)`;
+  });
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  updateSlides();
+}
+
+updateSlides();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const stackCards = Array.from(document.querySelectorAll('.card'));
 let orderIndex = 0;
@@ -187,14 +222,3 @@ for (let i = 0; i < imgCount * 2; i++) {
   img.alt = "";
   track.appendChild(img);
 }
-
-
-
-
-
-
-
-
-
-
-
