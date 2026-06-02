@@ -846,7 +846,7 @@ html{scroll-behavior:smooth;}
 /* ------------------------------------------------------------------------------------------------------ */
 
 #what_we_do {
-  scroll-margin-top: 2rem;
+  scroll-margin-top: -1rem;
   width: 100%;
   height: 57rem;
   display: flex;
@@ -1013,7 +1013,7 @@ html{scroll-behavior:smooth;}
 }
 
 .heading_whatwedo {
-  padding: 1rem 2rem;
+  padding: .5rem;
   font-family:'Bebas Neue',sans-serif;
   letter-spacing: 1px;
   border: 1px solid transparent;
@@ -1028,8 +1028,10 @@ html{scroll-behavior:smooth;}
   );  
   transition: all 0.3s ease;
   margin-top: 6rem;
-  width: 90%;
+  width: 20rem;
   margin-bottom: -6rem;
+  color: white;
+  font-size: 1.8rem;
 }
 
 
@@ -1040,15 +1042,133 @@ html{scroll-behavior:smooth;}
 
 
 #seeking {
+  height: 50rem;
+  scroll-margin-top: 5rem;
+}
+
+.info_section {
+  float: left;
   height: 40rem;
+  padding: 4rem;
+  width: 40%;
+  margin-left: 5rem;
+}
+.img_section {
+  width: 40%;
+  height: 40rem;
+  float: right;
+}
+.img_section img {
+  height: 40rem;
+  filter: saturate(150%);
+  border-radius: 5rem;
+  margin-top: 4rem;
+  margin-left: -5rem;
+}
+
+.heading_seeking {
+  padding: .5rem;
+  font-family:'Bebas Neue',sans-serif;
+  letter-spacing: 1px;
+  border: 1px solid transparent;
+  background-color: var(--orange);
+  clip-path: polygon(
+    0% 0%,
+    calc(100% - 10%) 0%,
+    100% 100%,
+    100% 100%,
+    10% 100%,
+    0% calc(100% - 100%)
+  );  
+  transition: all 0.3s ease;
+  width: 20rem;
+  color: white;
+  font-size: 1.8rem;
+  margin-left: 6rem;
+}
+
+.note {
+  margin-top: 2.75rem;
+}
+.note p {
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  line-height: 1.85;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.9);
+  min-height: 1.7em;
+  margin: 0.4rem 0;
+  width: 40rem;
+}
+
+.seeking-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: white;
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: seekingBlink 0.7s step-end infinite;
+  transition: opacity 0.5s ease;
 }
 
 
+
+.note p.typing-done {
+  animation: blink 0.7s step-end infinite;
+}
+
+.note p.hide-cursor {
+  border-right-color: transparent;
+  animation: none;
+}
+
+
+.note p {
+  letter-spacing: .2rem;
+  margin-bottom: 2rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
+  font-size: 1.5rem;
+}
+.note span {
+ transform: rotate(90deg);
+ float: left;
+ margin-right: 1rem;
+ color: #1995F8;
+ margin-top: .5rem;
+}
+
+/* ------------------------------------------------------------------------------------------------------ */
+/*                                           CONTACT US                                                   */
+/* ------------------------------------------------------------------------------------------------------ */
+
+#reach_us {
+  width: 100%;
+  height: 30rem;
+  background-color: #0a4e85;
+}
+.right_panel {
+  float: left;
+  padding: 5rem;
+  width: 40%;
+}
+.right_panel h1 {
+  color: var(--orange);
+  font-family: 'Bebas Nue', sans-serif;
+  font-weight: 800;
+  font-size: 3rem;
+  letter-spacing: -3px;
+  user-select: none;
+}
 /* ------------------------------------------------------------------------------------------------------ */
 /*                                           ANIMATIONS                                                   */
 /* ------------------------------------------------------------------------------------------------------ */
 
-
+@keyframes seekingBlink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 0; }
+}
 
 @keyframes jitter {
    0%, 100% { transform: translateY(0px) rotate(0deg); }
