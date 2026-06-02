@@ -1013,7 +1013,7 @@ html{scroll-behavior:smooth;}
 }
 
 .heading_whatwedo {
-  padding: 1rem 2rem;
+  padding: .5rem;
   font-family:'Bebas Neue',sans-serif;
   letter-spacing: 1px;
   border: 1px solid transparent;
@@ -1028,10 +1028,40 @@ html{scroll-behavior:smooth;}
   );  
   transition: all 0.3s ease;
   margin-top: 6rem;
-  width: 90%;
+  width: 70%;
   margin-bottom: -6rem;
+  color: white;
+  font-size: 2rem;
 }
 
+
+
+/* ------------------------------------------------------------------------------------------------------ */
+/*                                           LOGO BANNER                                                  */
+/* ------------------------------------------------------------------------------------------------------ */
+
+
+.logo_banner {
+  width: 100%;
+  height: 5rem;
+  background-color: rgba(0, 0, 0, 0.674);
+  border-bottom: 1px solid rgb(70, 79, 102);
+  overflow-x: hidden;
+}
+.logos {
+  width: 200%;
+  height: 5rem;
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+  animation: left_slide 20s linear infinite;
+}
+.logos img {
+  width: 2.5rem;
+  height: fit-content;
+  filter: grayscale(10%);
+  border-radius: 10%;
+}
 
 
 /* ------------------------------------------------------------------------------------------------------ */
@@ -1078,4 +1108,9 @@ html{scroll-behavior:smooth;}
   40% { transform: translateY(-6px) rotate(-0.2deg); }
   50% { transform: translateY(-7px) rotate(0.2deg); }
   60% { transform: translateY(-6px) rotate(-0.1deg); }
+}
+
+@keyframes left_slide {
+  0% { transform: translateX(0%) }
+  100% { transform: translateX(-51%) }
 }
