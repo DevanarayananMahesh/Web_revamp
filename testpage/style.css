@@ -1028,10 +1028,8 @@ html{scroll-behavior:smooth;}
   );  
   transition: all 0.3s ease;
   margin-top: 6rem;
-  width: 20rem;
+  width: 90%;
   margin-bottom: -6rem;
-  color: white;
-  font-size: 1.8rem;
 }
 
 
@@ -1198,4 +1196,9 @@ html{scroll-behavior:smooth;}
   40% { transform: translateY(-6px) rotate(-0.2deg); }
   50% { transform: translateY(-7px) rotate(0.2deg); }
   60% { transform: translateY(-6px) rotate(-0.1deg); }
+}
+
+@keyframes left_slide {
+  0% { transform: translateX(0%) }
+  100% { transform: translateX(-51%) }
 }
