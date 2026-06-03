@@ -240,7 +240,7 @@ seekingLines.forEach(p => lineObserver.observe(p));
 
 
 
-const TO_EMAIL = 'your@gmail.com';
+const TO_EMAIL = 'brooksr@mcmsnj.net';
  
 function openGmail() {
   const replyTo = document.getElementById('from-email').value.trim();
