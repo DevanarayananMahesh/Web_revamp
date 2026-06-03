@@ -32,7 +32,7 @@
             <a href="#about"><button class="nav_locator">About</button></a>
             <a href="#what_we_do"><button class="nav_locator">What We Do</button></a>
             <a href="#seeking"><button class="nav_locator">Seeking</button></a>
-            <button class="nav_locator">Contact</button>
+            <a href="#reach_us"><button class="nav_locator">Contact</button></a>
             <button class="nav_locator">Team</button>
             <button class="nav_locator">Gallery</button>
             <a href="https://ebms.mcmsnj.net/admissions/ai-robotics" target="_blank"><button class="nav_apply">Apply Now</button></a>
@@ -55,13 +55,13 @@
         <button onclick="menu_close()" id="closeBTN"><span class="material-symbols-outlined" style="color: black;">close</span></button>
 
         <div class="nav-links-menu">
-            <button class="nav_locator">About</button>
-            <button class="nav_locator">What We Do</button>
-            <button class="nav_locator">Seeking</button>
-            <button class="nav_locator">Contact</button>
-            <button class="nav_locator">Gallery</button>
+            <a href="#about"><button class="nav_locator">About</button></a>
+            <a href="#what_we_do"><button class="nav_locator">What We Do</button></a>
+            <a href="#seeking"><button class="nav_locator">Seeking</button></a>
+            <a href="#reach_us"><button class="nav_locator">Contact</button></a>
             <button class="nav_locator">Team</button>
-            <button class="nav_apply">Apply Now</button>
+            <button class="nav_locator">Gallery</button>
+            <a href="https://ebms.mcmsnj.net/admissions/ai-robotics" target="_blank"><button class="nav_apply">Apply Now</button></a>
         </div>
     </div>
 
@@ -329,41 +329,8 @@
 
 </div>
 </section>
-<!-------------------------------------------------------------------------------------------------------->
-<!--                                    LOGO BANNER SECTION                                             -->
-<!-------------------------------------------------------------------------------------------------------->
-
-<div class="logo_banner">
-  <div class="logos">
-    <img src="../images/banner_logos/python.png" style="width: 5rem;">
-    <img src="../images/banner_logos/c++.png" alt="">
-    <img src="../images/banner_logos/bambu.webp" alt="">
-    <img src="../images/banner_logos/vex.png" alt="">
-    <img src="../images/banner_logos/vscode.png" alt="">
-    <img src="../images/banner_logos/ebms.png" alt="">
-    <img src="../images/banner_logos/raspberry.png">
-    <img src="../images/banner_logos/hp.png" alt="">
-    <img src="../images/banner_logos/middlesex.png" alt="">
-    <img src="../images/banner_logos/unitree.png" alt="">
-    <img src="../images/banner_logos/niryo.png" alt="">
-    <img src="../images/Logo_Footer.png" alt="">
 
 
-
-    <img src="../images/banner_logos/python.png" style="width: 5rem;">
-    <img src="../images/banner_logos/c++.png" alt="">
-    <img src="../images/banner_logos/bambu.webp" alt="">
-    <img src="../images/banner_logos/vex.png" alt="">
-    <img src="../images/banner_logos/vscode.png" alt="">
-    <img src="../images/banner_logos/ebms.png" alt="">
-    <img src="../images/banner_logos/raspberry.png">
-    <img src="../images/banner_logos/hp.png" alt="">
-    <img src="../images/banner_logos/middlesex.png" alt="">
-    <img src="../images/banner_logos/unitree.png" alt="">
-    <img src="../images/banner_logos/niryo.png" alt="">
-    <img src="../images/Logo_Footer.png" alt="">
-  </div>
-</div>
 
 <!-------------------------------------------------------------------------------------------------------->
 <!--                                       SEEKING SECTION                                              -->
@@ -421,6 +388,51 @@
 <section id="reach_us">
   <div class="right_panel">
     <h1>REACH US</h1>
+    <a href="">EMAIL: <span>brooksr@mcmsnj.net</span></a>
+    <br>
+    <a href="">Instagram: <span>@ebms_ai.robotics</span></a>
+
+    <p class="contact-note">Applicants must also have applied to East Brunswick Magnet School.</p>
+
+    <div class="local_info">
+      <div class="filler_div">
+        <span>Location</span> <p>East brunswick, New Jersey</p>
+        <span>Geography</span> <p>Middlesex County</p>
+        <span>Grades</span> <p>9 through 12</p>
+      </div>
+    </div>
+    <a href="https://ebms.mcmsnj.net/admissions/ai-robotics" target="_blank"><button class="apply_footer">Apply Now</button></a>
+  </div>
+
+  <div class="right_pannel">
+    <div class="email_pannel">
+      
+
+      <div class="form-wrap">
+        <h1>✉️ Send us a message</h1>
+        <p class="subtitle">Clicking send will open Gmail with everything filled in.</p>
+ 
+        <div class="field">
+          <label for="from-email">Your email (reply-to)</label>
+          <input type="email" id="from-email" placeholder="you@example.com" />
+        </div>
+ 
+        <div class="field">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" placeholder="What's this about?" />
+        </div>
+ 
+        <div class="field">
+          <label for="description">Message</label>
+          <textarea id="description" placeholder="Describe your issue or question..."></textarea>
+        </div>
+ 
+        <button class="btn" onclick="openGmail()">Open in Gmail →</button>
+        <div class="error" id="error"></div>
+      </div>
+
+
+    </div>
   </div>
 </section>
 

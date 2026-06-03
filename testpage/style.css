@@ -1030,10 +1030,9 @@ html{scroll-behavior:smooth;}
   margin-top: 6rem;
   width: 90%;
   margin-bottom: -6rem;
+  color: white;
+  font-family: 1rem;
 }
-
-
-
 /* ------------------------------------------------------------------------------------------------------ */
 /*                                             SEEKING                                                    */
 /* ------------------------------------------------------------------------------------------------------ */
@@ -1143,8 +1142,8 @@ html{scroll-behavior:smooth;}
 
 #reach_us {
   width: 100%;
-  height: 30rem;
-  background-color: #0a4e85;
+  height:45rem;
+  background-color: #0c4370;
 }
 .right_panel {
   float: left;
@@ -1153,12 +1152,127 @@ html{scroll-behavior:smooth;}
 }
 .right_panel h1 {
   color: var(--orange);
-  font-family: 'Bebas Nue', sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
   font-weight: 800;
-  font-size: 3rem;
-  letter-spacing: -3px;
+  font-size: 4rem;
   user-select: none;
 }
+a {
+  text-decoration: none;
+  color: white;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 500;
+  font-size: 1.75rem;
+  user-select: none;
+}
+a span {
+  letter-spacing: .2rem;
+  font-size: 1.5rem;
+  margin-left: .5rem;
+  color: #36a5ff;
+  border-bottom: 1px solid transparent;
+  transition: all 0.1s ease;
+}
+a span:hover {
+  border-bottom: 1px solid #207cc6;
+}
+
+.contact-note{
+  margin-top:20px;
+  font-size:1rem;
+  opacity:1.0;
+  font-weight:300;
+  line-height:1.85;
+  color:var(--dark_blue);
+  white-space:nowrap;
+  margin-top:1rem;
+  color: rgba(255,255,255,0.85);
+  font-family: "Inter", sans-serif;
+}
+
+.local_info {
+  width: 20rem;
+  background-color: rgba(0, 0, 0, 0.264);
+  border: 1px solid rgba(128, 128, 128, 0.325);
+  padding: 1rem;
+  clip-path: polygon(
+    0% 0%,
+    calc(100% - 20px) 0%,
+    100% 20px,
+    100% 100%,
+    20px 100%,
+    0% calc(100% - 20px)
+  );  
+  float: left;
+  font-family: "Inter", sans-serif;
+  font-size: .9rem;
+  font-weight: 300;
+}
+.local_info .filler_div span {
+  font-family:'Bebas Neue',sans-serif;
+  font-weight: 100;
+  color: var(--orange);
+}
+.local_info span {
+  float: left;
+}
+
+.local_info p {
+  margin-left: 7rem;
+}
+
+
+.apply_footer {
+  padding: 20px 60px;
+  font-family:'Bebas Neue',sans-serif;
+  font-size: 28px;
+  letter-spacing: 0.04em;
+  border: none;
+  cursor: pointer;
+  clip-path: polygon(
+    0% 0%,
+    calc(100% - 8px) 0%,
+    100% 8px,
+    100% 100%,
+    8px 100%,
+    0% calc(100% - 8px)
+  );
+  animation: jitter 2s ease infinite;
+  outline: 1px solid var(--color-border-primary);
+  background-color: #1995F8;
+  color: white !important;
+  transition: all 0.3s ease;
+  filter: brightness(1.05);
+  margin-top: 2rem;
+}
+.apply_footer:hover {
+  transform: scale(1.05);
+  background-color: #207cc6;
+  clip-path: polygon(
+    8px 0%,
+    100% 0%,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    0% 100%,
+    0% 8px
+  );
+}
+.right_pannel {
+  float: right;
+  width: 45%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.email_pannel {
+  width: 90%;
+  height: 90%;
+  background-color: #4d9ddf;
+  border-radius: 3rem;
+  box-shadow: .75rem .75rem 2rem black;
+}
+
 /* ------------------------------------------------------------------------------------------------------ */
 /*                                           ANIMATIONS                                                   */
 /* ------------------------------------------------------------------------------------------------------ */

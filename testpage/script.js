@@ -227,3 +227,42 @@ const lineObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.2 });
 
 seekingLines.forEach(p => lineObserver.observe(p));
+
+
+
+
+
+
+
+// --------------------------------------------------------------------------------------------
+//                                SEEKING TYPE ANIMATION
+// --------------------------------------------------------------------------------------------
+
+
+
+const TO_EMAIL = 'your@gmail.com';
+ 
+function openGmail() {
+  const replyTo = document.getElementById('from-email').value.trim();
+  const subject = document.getElementById('subject').value.trim();
+  const body    = document.getElementById('description').value.trim();
+  const error   = document.getElementById('error');
+ 
+  if (!subject || !body) {
+    error.style.display = 'block';
+    error.textContent = 'Please fill in at least a subject and message.';
+    return;
+  }
+  error.style.display = 'none';
+ 
+  const fullBody = replyTo
+    ? `${body}\n\n— Sent by: ${replyTo}`
+    : body;
+ 
+  const gmailURL = 'https://mail.google.com/mail/?view=cm'
+    + `&to=${encodeURIComponent(TO_EMAIL)}`
+    + `&su=${encodeURIComponent(subject)}`
+    + `&body=${encodeURIComponent(fullBody)}`;
+ 
+  window.open(gmailURL, '_blank');
+}
