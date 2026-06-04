@@ -125,7 +125,7 @@ function animateGrantCounter() {
     const elapsed = currentTime - grantStart;
     const progress = Math.min(elapsed / grantDuration, 1);
     const value = Math.floor(progress * grantTarget);
-    grantCounter.textContent = value.toLocaleString('de-DE');
+    grantCounter.textContent = value.toLocaleString();
     if (progress < 1) requestAnimationFrame(update);
   }
   requestAnimationFrame(update);
