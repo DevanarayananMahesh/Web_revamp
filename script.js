@@ -5,7 +5,6 @@ function menu_open() {
     overlay.style = "opacity:1;";
 }
 
-
 function menu_close() {
     menu = document.getElementById("menu");
     overlay = document.getElementById("menu_overlay");
@@ -13,40 +12,32 @@ function menu_close() {
     overlay.style = "opacity:0;";
 }
 
-
 // --------------------------------------------------------------------------------------------
 //                                HERO HEAD TEXT ANIMATION
 // --------------------------------------------------------------------------------------------
-
 
 const sequences = [
   { line1: "EB Magnet", line2: "AI & Robotics" },
   { line1: "The Future", line2: "Of Tech" }
 ];
 
-
 const el1 = document.getElementById("line1");
 const el2 = document.getElementById("line2");
 
-
 el1.textContent = "";
 el2.textContent = "";
-
 
 const cursor = document.createElement("span");
 cursor.className = "cursor";
 let current = 0;
 
-
 const TYPE_SPEED = 80;
 const DELETE_SPEED = 50;
 const HOLD = 4000;
 
-
 async function sleep(ms) {
   return new Promise(r => setTimeout(r, ms));
 }
-
 
 async function heroType(el, text) {
   el.appendChild(cursor);
@@ -57,7 +48,6 @@ async function heroType(el, text) {
   }
 }
 
-
 async function heroDelete(el) {
   const text = el.textContent;
   el.appendChild(cursor);
@@ -67,7 +57,6 @@ async function heroDelete(el) {
     await sleep(DELETE_SPEED);
   }
 }
-
 
 async function loop() {
   while (true) {
@@ -82,20 +71,16 @@ async function loop() {
   }
 }
 
-
 loop();
-
 
 // --------------------------------------------------------------------------------------------
 //                              CIRCLE CHART ANIMATION
 // --------------------------------------------------------------------------------------------
 
-
 const ring = document.getElementById('ring');
 const counter = document.getElementById('counter');
 const ringTarget = 16;
 let animated = false;
-
 
 function animateCounter(from, to, duration) {
   const start = performance.now();
@@ -108,7 +93,6 @@ function animateCounter(from, to, duration) {
   requestAnimationFrame(step);
 }
 
-
 function trigger() {
   if (animated) return;
   animated = true;
@@ -116,13 +100,11 @@ function trigger() {
   animateCounter(0, ringTarget, 3500);
 }
 
-
 const scene = document.querySelector('.scene');
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) trigger(); });
 }, { threshold: 0.1 });
 obs.observe(scene);
-
 
 setTimeout(() => {
   const rect = scene.getBoundingClientRect();
@@ -134,42 +116,51 @@ setTimeout(() => {
 //                               GRANT NUMBER ANIMATION
 // --------------------------------------------------------------------------------------------
 
-
 const grantCounter = document.getElementById("grant_num_pannel");
 const grantTarget = 375000;
-const grantDuration = 2300;
-
+const grantDuration = 3200;
+let grantAnimated = false;
 
 function animateGrantCounter() {
+  if (grantAnimated) return;
+  grantAnimated = true;
+
   const grantStart = performance.now();
   function update(currentTime) {
     const elapsed = currentTime - grantStart;
     const progress = Math.min(elapsed / grantDuration, 1);
-    const value = Math.floor(progress * grantTarget);
-    grantCounter.textContent = value.toLocaleString('de-DE');
+    // Ease out quart — fast start, slows near the end
+    const ease = 1 - Math.pow(1 - progress, 4);
+    const value = Math.floor(ease * grantTarget);
+    grantCounter.textContent = value.toLocaleString();
     if (progress < 1) requestAnimationFrame(update);
+    else grantCounter.textContent = grantTarget.toLocaleString();
   }
   requestAnimationFrame(update);
 }
 
+const grantObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      animateGrantCounter();
+      grantObs.disconnect();
+    }
+  });
+}, { threshold: 0.2 });
 
-animateGrantCounter();
-
+grantObs.observe(grantCounter);
 
 // --------------------------------------------------------------------------------------------
 //                                    ABOUT CARD STACK ANIMATION
 // --------------------------------------------------------------------------------------------
 
-
 let currentSlide = 0;
-
 
 const slides = [
   document.getElementById("slide_engineering"),
   document.getElementById("slide_programming"),
   document.getElementById("slide_capstone")
 ];
-
 
 function updateSlides() {
   slides.forEach((slide, index) => {
@@ -179,24 +170,19 @@ function updateSlides() {
   });
 }
 
-
 function nextSlide() {
   currentSlide = (currentSlide + 1) % slides.length;
   updateSlides();
 }
 
-
 updateSlides();
-
 
 // --------------------------------------------------------------------------------------------
 //                                    CARD STACK ANIMATION
 // --------------------------------------------------------------------------------------------
 
-
 const stackCards = Array.from(document.querySelectorAll('.card'));
 let orderIndex = 0;
-
 
 function applyPositions() {
   const positions = ['front', 'middle', 'back'];
@@ -206,9 +192,7 @@ function applyPositions() {
   });
 }
 
-
 applyPositions();
-
 
 function cycle() {
   const frontCard = stackCards[orderIndex % stackCards.length];
@@ -221,24 +205,19 @@ function cycle() {
   }, 500);
 }
 
-
 setInterval(cycle, 7500);
-
 
 // --------------------------------------------------------------------------------------------
 //                                SEEKING TYPE ANIMATION
 // --------------------------------------------------------------------------------------------
 
-
 const seekingLines = document.querySelectorAll('#seeking .note p');
-
 
 function typeLine(el, text) {
   const cursor = document.createElement('span');
   cursor.className = 'seeking-cursor';
   el.textContent = '';
   el.appendChild(cursor);
-
 
   let i = 0;
   const timer = setInterval(() => {
@@ -252,7 +231,6 @@ function typeLine(el, text) {
   }, 18);
 }
 
-
 const lineObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -265,6 +243,43 @@ const lineObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.2 });
 
-
 seekingLines.forEach(p => lineObserver.observe(p));
 
+
+
+
+
+
+
+// --------------------------------------------------------------------------------------------
+//                                SEEKING TYPE ANIMATION
+// --------------------------------------------------------------------------------------------
+
+
+
+const TO_EMAIL = 'brooksr@mcmsnj.net';
+ 
+function openGmail() {
+  const replyTo = document.getElementById('from-email').value.trim();
+  const subject = document.getElementById('subject').value.trim();
+  const body    = document.getElementById('description').value.trim();
+  const error   = document.getElementById('error');
+ 
+  if (!subject || !body) {
+    error.style.display = 'block';
+    error.textContent = 'Please fill in at least a subject and message.';
+    return;
+  }
+  error.style.display = 'none';
+ 
+  const fullBody = replyTo
+    ? `${body}\n\n— Sent by: ${replyTo}`
+    : body;
+ 
+  const gmailURL = 'https://mail.google.com/mail/?view=cm'
+    + `&to=${encodeURIComponent(TO_EMAIL)}`
+    + `&su=${encodeURIComponent(subject)}`
+    + `&body=${encodeURIComponent(fullBody)}`;
+ 
+  window.open(gmailURL, '_blank');
+}
