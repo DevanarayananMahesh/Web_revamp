@@ -1,7 +1,109 @@
+let opened = false;
+let opened2 = false;
+
 const sequences = [
   { line1: "EB Magnet", line2: "AI & Robotics" },
   { line1: "The Future", line2: "Of Tech" }
 ];
+
+function toggle_team_panel() {
+  const button = document.getElementById("student_class");
+  const banner_team = document.getElementById("team_banner");
+
+  if (!opened) {
+    button.style.width = "90%";
+    banner_team.style.height = "25rem";
+    banner_team.style.width = "100%";
+  } else {
+    button.style.width = "";
+    banner_team.style.height = "";
+    banner_team.style.width = "";
+  }
+
+  opened = !opened;
+}
+
+
+
+function toggle_team_panel2() {
+  const button = document.getElementById("student_class2");
+  const banner_team = document.getElementById("team_banner2");
+
+  if (!opened2) {
+    button.style.width = "90%";
+    banner_team.style.height = "10rem";
+    banner_team.style.width = "100%";
+    
+  } else {
+    button.style.width = "";
+    banner_team.style.height = "";
+    banner_team.style.width = "";
+  }
+
+  opened2 = !opened2;
+}
+
+
+
+
+
+function openPopup(name) {
+  document
+    .getElementById("popup_overlay")
+    .classList.add("active");
+
+  title = document.getElementById("popup_title")
+  content = document.getElementById("popup_content")
+  nickname = document.getElementById("popup_nickname")
+  district = document.getElementById("popup_district")
+
+  if (name == "Jacob"){
+    title.innerHTML = "Jacob Hart";
+    nickname.innerHTML = "Mad Scientist";
+    district.innerHTML = "Woodbridge";
+    content.innerHTML = "Jacob specializes in electrical engineering and Software engineering, often creating extremely unique projects.";
+  }
+  if (name == "Deva"){
+    title.innerHTML = "Devanarayanan Mahesh";
+    nickname.innerHTML = "The designer";
+    district.innerHTML = "East brunswick";
+    content.innerHTML = "Deva is known for his amazing art and design skills, often covering the whiteboards with sketches. He specializes on the design aspects of technology.";
+  }
+  if (name == "Ani"){
+    title.innerHTML = "Anirudh Krushnakumar";
+    nickname.innerHTML = "The Scholar";
+    district.innerHTML = "Monroe";
+    content.innerHTML = "Anirudh has an extreme focus on academics and higher education, while also focusing on Computer Science and the beginnings of electrical Engineering.";
+  }
+  if (name == "David"){
+    title.innerHTML = "David Hummel";
+    nickname.innerHTML = "The Experimenter";
+    district.innerHTML = "Woodbridge";
+    content.innerHTML = "David focuses on Machine learning and Computer Science, doing much of the back end code for most projects he works on.";
+  }
+  if (name == "Hannah"){
+    title.innerHTML = "Hannah Kinney";
+    nickname.innerHTML = "jack of all trades";
+    district.innerHTML = "East brunswick";
+    content.innerHTML = "Hannah has no distinct focus, preferring to instead work on everything and anything to maximize her experience and options.";
+  }
+  if (name == "Shub"){
+    title.innerHTML = "Shubham Mishra";
+    nickname.innerHTML = "The All-rounder";
+    district.innerHTML = "Monroe";
+    content.innerHTML = "Shubham focuses on Vex V5 robotics, enjoying both the building and application of specialized sensors throughout.";
+  }
+
+}
+
+function closePopup() {
+  document
+    .getElementById("popup_overlay")
+    .classList.remove("active");
+}
+
+
+
 
 const el1 = document.getElementById("line1");
 const el2 = document.getElementById("line2");
@@ -76,3 +178,43 @@ window.addEventListener("scroll", () => {
 }, { passive: true });
 
 window.dispatchEvent(new Event("scroll"));
+
+
+
+const banner = document.querySelector('.team_banner');
+let startX = 0;
+let scrollStart = 0;
+let isDragging = false;
+
+// Safe layout wait before injecting initial scroll point
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    banner.scrollLeft = 120;
+  }, 50); 
+});
+
+banner.addEventListener('mousedown', e => {
+  isDragging = true;
+  startX = e.clientX;
+  scrollStart = banner.scrollLeft;
+  banner.classList.add('dragging');
+});
+
+window.addEventListener('mousemove', e => {
+  if (!isDragging) return;
+  banner.scrollLeft = scrollStart - (e.clientX - startX);
+});
+
+window.addEventListener('mouseup', () => {
+  isDragging = false;
+  banner.classList.remove('dragging');
+});
+
+banner.addEventListener('touchstart', e => {
+  startX = e.touches[0].clientX;
+  scrollStart = banner.scrollLeft;
+}, { passive: true });
+
+banner.addEventListener('touchmove', e => {
+  banner.scrollLeft = scrollStart - (e.touches[0].clientX - startX);
+}, { passive: true });

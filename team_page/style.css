@@ -262,58 +262,59 @@ html{scroll-behavior:smooth;}
 }
 
 
+
 /* ------------------------------------------------------------------------------------------------------ */
 /*                                          TEAM SECTION                                                  */
 /* ------------------------------------------------------------------------------------------------------ */
-
 
 #team {
   width: 100%;
   padding-top: 10rem;
   height: 30rem;
 }
-#team .heading_banner {
+#team .heading_banner, .alumni_banner {
   width: 100%;
   height: 10rem;
   display: flex;
   justify-content: center;
   background-image: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.582), rgba(0, 0, 0, 0));
   align-items: center;
+  user-select: none;
 }
-#team .heading_banner h1 {
+#team .heading_banner h1, .alumni_banner h1 {
   font-family: "Bebas Neue", sans-serif;
   font-size: 5rem;
   letter-spacing: .7rem;
-  text-shadow: -2px 0 var(--orange), 0 2px var(--orange), 2px 0 var(--orange), 0 -2px var(--orange);
+  color: aliceblue;
+  font-weight: 100;
+}
+#team .heading_banner h1 span, .alumni_banner h1 span {
+  color: var(--orange);
+  font-weight: 1000;
+}
+.alumni_banner {
+  margin-top: 4rem;
 }
 #team .button_section {
   width: 100%;
+  margin-top: 2rem;
+  gap: .5rem;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 #team .student_class {
- position: absolute;
-  width: 90%;
-  height: 8rem;
-  clip-path: polygon(
-    0% 0%,
-    calc(100% - 30px) 0%,
-    100% 30px,
-    100% 100%,
-    30px 100%,
-    0% calc(100% - 30px)
-  );
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 60%;
+  height: 4rem;
   font-family: "Bebas Neue", sans-serif;
   letter-spacing: .5rem;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #050e1f;
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.6s ease;
+  font-size: .7rem;
+  color: var(--dark_blue);
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
   cursor: pointer;
-   background:
+  background:
     linear-gradient(
       145deg,
       #1995F8 0%,
@@ -325,6 +326,7 @@ html{scroll-behavior:smooth;}
     0 10px 40px rgba(0,0,0,.45),
     inset 0 1px rgba(255,255,255,.08),
     0 0 30px rgba(25,149,248,.18);
+  margin-top: 2rem;
 }
 .head_team {
   width: 100%;
@@ -375,6 +377,258 @@ html{scroll-behavior:smooth;}
   height: 65%;
   border-radius: 100%;
 }
+.assitant_bio, .teacher_bio {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 2rem;
+  background-color: rgba(0, 0, 0, 0.212);
+  border: 1px solid rgba(128, 128, 128, 0.586);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  user-select: none;
+}
+.assitant_bio p, .teacher_bio p {
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0 2rem;
+  font-weight: 150;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.teacher_bio h1, .assitant_bio h1 {
+  color: var(--orange);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2rem;
+  font-weight: 300;
+}
+.box_bio {
+  padding: 1rem;
+  border: 1px solid #4fb0ff;
+  color: #4fb0ff;
+  background-color: transparent;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+}
+.team_banner {
+  width: 10%;
+  height: 0rem;
+  transition: all 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.178);
+  border-top: 1px solid rgba(128, 128, 128, 0.428);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.428);
+  margin-top: -1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  overflow-x: auto;
+  cursor: grab;
+  user-select: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  padding: 0 2rem; 
+  position: relative;
+  box-sizing: border-box;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+}
+.team_banner2 {  
+  width: 10%;
+  height: 0rem;
+  transition: all 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.178);
+  border-top: 1px solid rgba(128, 128, 128, 0.428);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.428);
+  margin-top: -1.5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow-x: auto;
+  cursor: grab;
+  user-select: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  padding: 0 2rem;
+  position: relative;
+  box-sizing: border-box;
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+}
+
+.team_banner2 h1 {
+  font-family: "Bebas Neue", sans-serif;
+  color: grey;
+}
+
+.team_banner2 h1 {
+  margin: 0;
+  text-align: center;
+}
+.team_banner::-webkit-scrollbar {
+  display: none;
+}
+.team_banner.dragging {
+  cursor: grabbing;
+}
+.team_banner .team_card {
+  min-width: 20rem;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.team_banner .team_card_img {
+  width: 20rem;
+  height: 20rem;
+  transition: filter 0.4s ease, transform 0.4s ease; /* Smooth fade effect */
+}
+
+/* This class will be applied dynamically by JavaScript to the center cards */
+.team_card.active-card .team_card_img {
+  filter: grayscale(0); /* Full color */
+  transform: scale(1.05); /* Slight pop-out effect like the reference image */
+}
+
+.team_banner .team_card_img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 2rem;
+  object-fit: cover;
+  object-position: center 20%;
+  box-shadow: .5rem .5rem 10rem rgb(0, 0, 0);
+  pointer-events: none;
+  user-select: none;
+}
+.student_info_bar {
+  margin-top: -7rem;
+  background-color: #1994f8f0;
+  border: 1px solid grey;
+  color: black;
+  font-family: "Bebas Neue", sans-serif;
+  border-radius: 1rem;
+  z-index: 900;
+}
+.filler {
+  font-family: "Bebas Neue", sans-serif;
+  color: gray;
+}
+.student_info_bar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: .5rem 3rem;
+  border-radius: 1rem;
+  font-family: "Bebas Neue", sans-serif;
+}
+
+
+
+/* ------------------------------------------------------------------------------------------------------ */
+/*                                             POPUP                                                      */
+/* ------------------------------------------------------------------------------------------------------ */
+
+
+
+.popup_overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+
+  z-index: 9999;
+}
+
+.popup_overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup {
+  width: min(90%, 32rem);
+  padding: 2rem;
+
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 1rem;
+
+  color: white;
+  font-family: Inter, sans-serif;
+
+  transform: translateY(20px) scale(0.95);
+  transition: 0.3s ease;
+
+  position: relative;
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.5),
+    0 0 40px rgba(79,176,255,0.15);
+}
+
+.popup_overlay.active .popup {
+  transform: translateY(0) scale(1);
+}
+
+.popup h2 {
+  margin-top: 0;
+}
+
+.popup_close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+
+  width: 2rem;
+  height: 2rem;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.1);
+  color: white;
+  cursor: pointer;
+}
+
+.popup_btn {
+  margin-top: 1rem;
+  padding: 0.8rem 1.4rem;
+
+  border: 1px solid #4fb0ff;
+  background: transparent;
+  color: #4fb0ff;
+
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+
 /* ------------------------------------------------------------------------------------------------------ */
 /*                                           ANIMATIONS                                                   */
 /* ------------------------------------------------------------------------------------------------------ */

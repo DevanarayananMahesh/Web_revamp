@@ -16,6 +16,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="popup_overlay" id="popup_overlay" onclick="closePopup()">
+        <div class="popup" onclick="event.stopPropagation()">
+            <button class="popup_close" onclick="closePopup()">✕</button>
+
+            <h2 id="popup_title">Popup Title</h2>
+            <p>Nicknamed <span id="popup_nickname"></span></p>
+            <p>From <span id="popup_district"></span></p>
+            <p id="popup_content">Your content goes here.</p>
+
+            <button class="popup_btn" onclick="closePopup()">
+            Close
+            </button>
+        </div>
+    </div>
     <!-------------------------------------------------------------------------------------------------------->
     <!--                                               NAVBAR                                               -->
     <!-------------------------------------------------------------------------------------------------------->
@@ -70,9 +84,13 @@
 
     <section id="team">
         <div class="heading_banner">
-            <h1>Team</h1>
+            <h1>Meet the <span>Team</span></h1>
         </div>
         <div class="head_team">
+            <div class="teacher_bio">
+                <h1>Rachel Brooks</h1>
+                <p>Rachel Brooks is a CTE instructor in AI & Robotics at East Brunswick Magnet School, where she helped develop the AI & Robotics curriculum and teaches programming, machine learning, electronics, and robotics. She holds a B.S. in Computer Science from The Pennsylvania State University while currently pursuing a Master's in Artificial Intelligence.</p>
+            </div>
             <div class="teacher">
                 <div class="role">Teacher</div>
                 <div class="image_circle">
@@ -82,16 +100,120 @@
             <div class="assitant">
                 <div class="role">Robot</div>
                 <div class="image_circle">
-                    <img src="../images/bio_pics/benjamin.jpg" alt="">
+                    <img src="../images/bio_pics/benjaminn.png" alt="">
+                </div>
+            </div>
+            <div class="assitant_bio">
+                <h1>Benjamin Gurt</h1>
+                <p>Benjamin is a Unitree G1 Edu ultimate D robot from Unitree Robotics.</p>
+                <p><span><b>His favorite hobby:</b></span></p>
+                <div class="box_bio">
+                    Sleeping and learning martial arts
                 </div>
             </div>
         </div>
         <div class="button_section">
-            <button class="student_class">
+            <button class="student_class" onclick="toggle_team_panel()" id="student_class">
                 <h1>Class of 2029</h1>
             </button>
+            <div class="team_banner" id="team_banner">
+                
+
+                <div class="team_card">
+                    <div class="team_card_img">
+                        <img src="../images/bio_pics/jacob.jpg" alt="">            
+                    </div>
+                    
+                        <div class="student_info_bar">
+                            <button onclick="openPopup('Jacob')">
+                                <h1>Jacob Hart<h1>
+                            </button>
+                        </div>
+                    
+                </div>
+
+                <div class="team_card">
+                    <div class="team_card_img">
+                        <img src="../images/bio_pics/david.jpg" style="object-position: center 40%;">            
+                    </div>
+                    <div class="student_info_bar">
+                        <button onclick="openPopup('David')">
+                            <h1>David Hummel</h1>
+                        </button>
+                        
+                    </div>
+                </div>
+
+                <div class="team_card">
+                    <div class="team_card_img">
+                        <img src="../images/bio_pics/hannah.jpg" style="object-position: center 90%;">            
+                    </div>
+                    <div class="student_info_bar">
+                        <button onclick="openPopup('Hannah')">
+                            <h1>Hannah Kinney</h1>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="team_card">
+                    <div class="team_card_img">
+                        <img src="../images/bio_pics/anirudh.jpg" style="object-position: center 60%;">            
+                    </div>
+                    <div class="student_info_bar">
+                        <button onclick="openPopup('Ani')">
+                            <h1>Ani Krushnakumar</h1>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="team_card">
+                    <div class="team_card_img">
+                        <img src="../images/bio_pics/david.jpg" alt="">            
+                    </div>
+                    <div class="student_info_bar">
+                        <button onclick="openPopup('Deva')">
+                            <h1>Deva Mahesh</h1>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="team_card">
+                    <div class="team_card_img">
+                        <img src="../images/bio_pics/shubam.jpg" alt="">            
+                    </div>
+                    <div class="student_info_bar">
+                        <button onclick="openPopup('Shub')">
+                            <h1>Shubham Mishra</h1>
+                        </button>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+
+
+        
+            <button class="student_class" onclick="toggle_team_panel2()" id="student_class2">
+                <h1>Class of 2030</h1>
+            </button>
+            <div class="team_banner2" id="team_banner2">
+                <h1>To be Determined</h1>
+            </div>
+
+
+
+
+        </div>
+        <div class="alumni_banner">
+            <h1><span>Alumni</span></h1>
+        </div>
+        <div style="width: 100%; display: flex; align-items: center; justify-content: center;">
+            <h1 class="filler">No Alumni yet!</h1>
         </div>
     </section>
-    
+    <script src="script.js"></script>
 </body>
 </html>
