@@ -1,49 +1,138 @@
-
-<!-- Catagories:
- Vex, Benjamin, Niryo, candid, Project showcase, TSA (leave empty for now) 
-
-Use the mcmsnj website's thingy where caption dynamic pop up frfr yk what i mean
-
- -->
-
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Space+Mono:wght@400;700&amp;family=Lato:wght@300;400&amp;display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="WebIcon.png">
-    <link rel="stylesheet" href="style.css">
     <title>EBMS AI & Robotics - Gallery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Space+Mono:wght@400;700&amp;family=Lato:wght@300;400&amp;display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../images/Logo_Footer.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=close" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=build" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=graph_8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="nav">
-        <a href="../index.html#hero"><img src="../images/Logo_nav.png" class="class_logo"></a>
-    <div class="nav-links">
-        <a href="../index.html#about"><button class="btn_nav">About</button></a>
-        <a href="../index.html#what_we_do"><button class="btn_nav">What We Do</button></a>
-        <a href="../index.html#seeking"><button class="btn_nav">Seeking</button></a>
-        <a href="../index.html#contact"><button class="btn_nav">Contact</button></a>
-        <button class="btn_nav">Gallery</button>
-        <a href="../team_page/team.html"><button class="btn_nav">Team</button></a>
-        <a href="https://ebms.mcmsnj.net/admissions/ai-robotics"><button class="btn_nav_apply">Apply Now</button></a>
+  <!-------------------------------------------------------------------------------------------------------->
+    <!--                                               NAVBAR                                               -->
+    <!-------------------------------------------------------------------------------------------------------->
+
+
+    <div class="nav">
+        <div class="logo_nav">
+            <a href="#hero"><img src="../images/Logo_nav.png" alt="Logo_nav"></a>
+        </div>
+        <div class="nav-links">
+            <a href="#about"><button class="nav_locator">About</button></a>
+            <a href="#what_we_do"><button class="nav_locator">What We Do</button></a>
+            <a href="#seeking"><button class="nav_locator">Seeking</button></a>
+            <a href="#reach_us"><button class="nav_locator">Contact</button></a>
+            <a href="../team_page/team.html"><button class="nav_locator">Team</button></a>
+            <a href="../gallery_page/gallery.html"><button class="nav_locator">Gallery</button></a>
+            <a href="https://ebms.mcmsnj.net/admissions/ai-robotics" target="_blank"><button class="nav_apply">Apply Now</button></a>
+        </div>
+        <div class="menu_icon">
+            <button class="menu_icon_btn" onclick="menu_open()">
+                <i class="fa fa-bars" id="menu_bar"></i>
+            </button>
+        </div>
     </div>
-</div>
-<section id="hero">
-  <div class="hero-left">
-    <h1 class="hero-title">
-      <div class="section-label">00 — Welcome to</div>
-      <span class="line1" id="line1">EB Magnet</span>
-      <span class="line2" id="line2">AI & Robotics</span>
-    </h1>
-    <p class="hero-sub">
-      A tight-knit group of students, all working together to learn how to code, build, and thrive. The future is here.
-    </p>
-    <a href="https://ebms.mcmsnj.net/admissions/ai-robotics"><button class="Apply_Hero">Apply Now</button></a>
-  </div>
-  <div class="hero-right">
-    <!-- <img id="robot-frame" src="images/frames/0000.png" alt="Niryo Ned 2" style="width:60%;max-width:450px; border: 1px solid red;"> -->
-     <img src="images/Tonganosapo.png" style="width: 500px;">
-  </div>
-</section>
+
+    <!-------------------------------------------------------------------------------------------------------->
+    <!--                                            MENU SECTION                                            -->
+    <!-------------------------------------------------------------------------------------------------------->
+
+
+    <div class="menu_overlay" id="menu_overlay" onclick="menu_close()"></div>
+    <div class="menu" id="menu">
+        <h1 class="header_menu">EBMS AI & Robotics</h1>
+        <button onclick="menu_close()" id="closeBTN"><span class="material-symbols-outlined" style="color: black;">close</span></button>
+
+        <div class="nav-links-menu">
+            <a href="#about"><button class="nav_locator">About</button></a>
+            <a href="#what_we_do"><button class="nav_locator">What We Do</button></a>
+            <a href="#seeking"><button class="nav_locator">Seeking</button></a>
+            <a href="#reach_us"><button class="nav_locator">Contact</button></a>
+            <button class="nav_locator">Team</button>
+            <button class="nav_locator">Gallery</button>
+            <a href="https://ebms.mcmsnj.net/admissions/ai-robotics" target="_blank"><button class="nav_apply">Apply Now</button></a>
+        </div>
+    </div>
+
+
+
+    <!-------------------------------------------------------------------------------------------------------->
+    <!--                                      GALLERY SECTION                                               -->
+    <!-------------------------------------------------------------------------------------------------------->
+    
+    <section id="gallery_row">
+      <div class="title_gallery">
+        <h1>Gallery</h1>
+      </div>
+      
+      <div class="image_gallery_row">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+      </div>
+      <div class="image_gallery_row">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+      </div>
+      <div class="image_gallery_row">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+      </div>
+      <div class="image_gallery_row">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+      </div>
+      <div class="image_gallery_row">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+      </div>
+      <div class="image_gallery_row">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+      </div>
+      <div class="image_gallery_row">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+      </div>
+      <div class="image_gallery_row">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+        <img src="../images/Benjamin.jpg" alt="">
+      </div>
+    
+    </section>
 </body>
 </html>
