@@ -264,6 +264,11 @@ html{scroll-behavior:smooth;}
 /* ------------------------------------------------------------------------------------------------------ */
 /*                                          HERO SECTION                                                  */
 /* ------------------------------------------------------------------------------------------------------ */
+#gallery_row {
+  height: auto;
+  overflow: hidden;
+  padding-top: 9rem;
+}
 .title_gallery {
   width: 100%;
   height: 10rem;
@@ -274,17 +279,53 @@ html{scroll-behavior:smooth;}
 .title_gallery h1 {
   font-family: "Bebas Neue", sans-serif;
   color: var(--orange);
-  font-size: 3rem;
+  font-size: 4rem;
+  letter-spacing: .3rem;
 }
 
 .image_gallery_row {
   width: 100%;
-  height: 30rem;
+  height: 27rem;
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 2.25rem;
   justify-content: center;
 }
 .image_gallery_row img {
-  width: 12rem;
+  width: 15rem;
+  display: block;
+}
+.gallery_info {
+  width: 15rem;
+  height: 5rem;
+  border: 1px solid rgb(82, 82, 82);
+  background-color: rgba(0, 0, 0, 0.408);
+  position: absolute;
+  bottom: -5rem;
+  left: 0;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+.gallery_info .title_gallery_p {
+  margin-top: 1.25rem;
+  font-size: 2rem;
+  color: rgb(149, 149, 149);
+  font-family: "Bebas Neue", sans-serif;
+}
+.gallery_info .content_gallery {
+  padding: 2rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 100;
+}
+.gallery_info:hover {
+  height: 25rem;
+  background-color: black;
+}
+.image_gallery_row .item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }

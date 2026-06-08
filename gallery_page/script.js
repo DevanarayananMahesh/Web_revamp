@@ -76,3 +76,8 @@ window.addEventListener("scroll", () => {
 }, { passive: true });
 
 window.dispatchEvent(new Event("scroll"));
+
+
+function text_appear_gallery() {
+  content = document.getElementById("");
+}

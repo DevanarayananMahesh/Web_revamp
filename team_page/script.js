@@ -71,7 +71,7 @@ function openPopup(name) {
   }
   if (name == "Ani"){
     title.innerHTML = "Anirudh Krushnakumar";
-    nickname.innerHTML = "The Scholar";
+    nickname.innerHTML = "The Scholar, Social Media Manager";
     district.innerHTML = "Monroe";
     content.innerHTML = "Anirudh has an extreme focus on academics and higher education, while also focusing on Computer Science and the beginnings of electrical Engineering.";
   }

@@ -226,7 +226,10 @@ function typeLine(el, text) {
     i++;
     if (i === text.length) {
       clearInterval(timer);
-      setTimeout(() => cursor.remove(), 1200);
+
+      setTimeout(() => {
+        cursor.style.opacity = "0";
+      }, 1200);
     }
   }, 18);
 }
