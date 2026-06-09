@@ -1152,6 +1152,163 @@ html{scroll-behavior:smooth;}
 .note p.hide-cursor {
   animation: none;
 }
+/* ------------------------------------------------------------------------------------------------------ */
+/*                                            SYLLABUS                                                    */
+/* ------------------------------------------------------------------------------------------------------ */
+
+
+#syllabus {
+  width: 100%;
+  height: 40rem;
+  background-color: #00000012;
+  border-top: 1px solid rgb(56, 56, 56);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.left_pdf {
+  height: 100%;
+  width: 32%;
+  display: flex;
+  align-items: center;
+}
+.left_pdf img {
+  height: 80%;
+  border-radius: 1rem;
+  margin-left: auto;
+  transition: all 0.3s ease;
+}
+.left_pdf img:hover {
+  border-radius: 1.5rem;
+  filter: brightness(0.25);
+}
+.middle_info {
+  width: 48%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+.middle_info p {
+  font-family: "Inter", sans-serif;
+  font-weight: 150;
+  color: white;
+}
+.content_syllabus a {
+  color: #1995F8;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+.content_syllabus a:hover {
+  border-bottom: 1px solid #1995F8;
+}
+.middle_info p span {
+  color: #1995F8;
+  font-weight: 200;
+}
+.inclusion_box {
+  width: 90%;
+  height: 15rem;
+  background-color: black;
+  margin-top: 2rem;
+  border-radius: 2rem;
+  border: 1px solid rgb(51, 51, 51);
+  color: grey;
+  font-family: "Bebas Neue", sans-serif;
+  align-items: center;
+  justify-content: center;
+}
+.inclusion_box h1 {letter-spacing: .3rem;}
+
+.syllabus_title {
+  width: 100%;
+  height: 5rem;
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.syllabus_title h1 {
+  font-family: "Bebas Neue", sans-serif;
+  color: var(--orange);
+  letter-spacing: .2rem;
+  font-size: 3rem;
+}
+
+
+.syllabus_info {
+    position: relative;
+    transition: .3s ease all;
+}
+
+/* 1. Add pointer-events: none to code_info by default */
+.code_info {
+    position: absolute;
+    top: 0;
+    left: 44.5%;
+    width: 48%;
+    height: 100%;
+    z-index: 10;
+    transform: translateY(-100rem);
+    transition: .3s ease all;
+    pointer-events: none; /* Mouse ignores this box when off-screen */
+}
+
+/* 2. Create an active class for when the code info slides INTO view */
+.code_info.active {
+    transform: translateY(0);
+    pointer-events: auto; /* Re-enable clicks only when visible */
+}
+
+/* 3. Make sure the sidebar always stays on the absolute top layer */
+.sidebar_syllabus {
+  width: 20%;
+  height: 100%;
+  border-left: 1px solid rgb(45, 45, 45);
+  background-color: rgba(0, 0, 0, 0.288);
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  position: relative; /* Required for z-index to work */
+  z-index: 20;        /* Higher than code_info's z-index of 10 */
+}
+.a_code {
+  border: none;
+  color: gray;
+}
+.a_code:hover {
+  border-bottom: 1px solid transparent;
+}
+.sidebar_syllabus h1 {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 100;
+  color: rgb(90, 90, 90);
+  letter-spacing: .2rem;
+}
+.sidebar-links {
+  width: 100%;
+}
+.sidebar-links button {
+  width: 100%;
+  height: 5rem;
+  border-top: 1px solid rgb(67, 67, 67);
+  color: rgb(110, 110, 110);
+  border-left: none;
+  border-right: none;
+  font-family: "Inter", sans-serif;
+  font-weight: 200;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+.sidebar-links button:hover {
+  background-color: var(--orange);
+  color: black;
+  border: 1px solid transparent;
+  font-weight: 300;
+}
 
 /* ------------------------------------------------------------------------------------------------------ */
 /*                                           CONTACT US                                                   */

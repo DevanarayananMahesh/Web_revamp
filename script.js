@@ -254,6 +254,22 @@ seekingLines.forEach(p => lineObserver.observe(p));
 
 
 
+function syllabus_slide(btn_type) {
+  syllabus = document.getElementById("syllabus_info_")
+  code = document.getElementById("code_info")
+
+  if (btn_type=="Code") {
+    code.style.transform = 'translateY(0rem)';
+    syllabus.style.transform = 'translateY(100rem)';
+  }
+  else {
+    code.style.transform = 'translateY(-100rem)';
+    syllabus.style.transform = 'translateY(0rem)';
+  }
+}
+
+
+
 // --------------------------------------------------------------------------------------------
 //                                SEEKING TYPE ANIMATION
 // --------------------------------------------------------------------------------------------
