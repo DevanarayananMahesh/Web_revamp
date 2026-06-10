@@ -269,6 +269,24 @@ function syllabus_slide(btn_type) {
 }
 
 
+function showViewMoreLink() {
+  document.getElementById("syllabusLinkIMG").style="opacity: 1;"
+}
+function hideViewMoreLink() {
+  document.getElementById("syllabusLinkIMG").style="opacity: 0;"
+}
+
+
+function copyCode() {
+  const code = "4kgsf6id";
+  navigator.clipboard.writeText(code);
+
+  // Optional feedback
+}
+
+
+
+
 
 // --------------------------------------------------------------------------------------------
 //                                SEEKING TYPE ANIMATION
