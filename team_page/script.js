@@ -13,11 +13,11 @@ function toggle_team_panel() {
   if (!opened) {
     button.style.width = "90%";
     banner_team.style.height = "25rem";
-    banner_team.style.width = "100%";
+    banner_team.style.opacity = "1";
   } else {
     button.style.width = "";
-    banner_team.style.height = "";
-    banner_team.style.width = "";
+    banner_team.style.height = "0";
+    banner_team.style.opacity = "0";
   }
 
   opened = !opened;
@@ -56,45 +56,80 @@ function openPopup(name) {
   content = document.getElementById("popup_content")
   nickname = document.getElementById("popup_nickname")
   district = document.getElementById("popup_district")
+  full_nickname = document.getElementById("full_popup_nickname")
+  full_from = document.getElementById("full_popup_from")
+  image = document.getElementById("image_side")
 
   if (name == "Jacob"){
     title.innerHTML = "Jacob Hart";
-    nickname.innerHTML = "Mad Scientist";
-    district.innerHTML = "Woodbridge";
+    nickname.innerHTML = "Nicknamed Mad Scientist";
+    district.innerHTML = "From Woodbridge";
     content.innerHTML = "Jacob specializes in electrical engineering and Software engineering, often creating extremely unique projects.";
+    image.innerHTML = '<img src="../images/bio_pics/jacob.jpg" alt="Profile Image">';
   }
   if (name == "Deva"){
     title.innerHTML = "Devanarayanan Mahesh";
-    nickname.innerHTML = "The designer";
-    district.innerHTML = "East brunswick";
+    nickname.innerHTML = "Nicknamed The designer";
+    district.innerHTML = "From East brunswick";
     content.innerHTML = "Deva is known for his amazing art and design skills, often covering the whiteboards with sketches. He specializes on the design aspects of technology.";
+    image.innerHTML = '<img src="../images/bio_pics/deva.png" alt="Profile Image">';
   }
   if (name == "Ani"){
     title.innerHTML = "Anirudh Krushnakumar";
-    nickname.innerHTML = "The Scholar, Social Media Manager";
-    district.innerHTML = "Monroe";
+    nickname.innerHTML = "Nicknamed The Scholar, Social Media Manager";
+    district.innerHTML = "From Monroe";
     content.innerHTML = "Anirudh has an extreme focus on academics and higher education, while also focusing on Computer Science and the beginnings of electrical Engineering.";
+    image.innerHTML = '<img src="../images/bio_pics/anirudh.jpg" alt="Profile Image">';
   }
   if (name == "David"){
     title.innerHTML = "David Hummel";
-    nickname.innerHTML = "The Experimenter";
-    district.innerHTML = "Woodbridge";
+    nickname.innerHTML = "Nicknamed The Experimenter";
+    district.innerHTML = "From Woodbridge";
     content.innerHTML = "David focuses on Machine learning and Computer Science, doing much of the back end code for most projects he works on.";
+    image.innerHTML = '<img src="../images/bio_pics/david.jpg" alt="Profile Image">';
   }
   if (name == "Hannah"){
     title.innerHTML = "Hannah Kinney";
-    nickname.innerHTML = "jack of all trades";
-    district.innerHTML = "East brunswick";
+    nickname.innerHTML = "Nicknamed jack of all trades";
+    district.innerHTML = "From East brunswick";
     content.innerHTML = "Hannah has no distinct focus, preferring to instead work on everything and anything to maximize her experience and options.";
+    image.innerHTML = '<img src="../images/bio_pics/hannah.jpg" alt="Profile Image">';
   }
   if (name == "Shub"){
     title.innerHTML = "Shubham Mishra";
-    nickname.innerHTML = "The All-rounder";
-    district.innerHTML = "Monroe";
+    nickname.innerHTML = "Nicknamed The All-rounder";
+    district.innerHTML = "From Monroe";
     content.innerHTML = "Shubham focuses on Vex V5 robotics, enjoying both the building and application of specialized sensors throughout.";
+    image.innerHTML = '<img src="../images/bio_pics/shubam.jpg" alt="Profile Image">';
+  }
+   if (name == "Brooks"){
+    title.innerHTML = "Rachel Brooks";
+    nickname.innerHTML = "Role as Teacher";
+    district.innerHTML = "";
+    content.innerHTML = "Rachel Brooks is a CTE instructor in AI & Robotics at East Brunswick Magnet School, where she helped develop the AI & Robotics curriculum and teaches programming, machine learning, electronics, and robotics. She holds a B.S. in Computer Science from The Pennsylvania State University while currently pursuing a Master's in Artificial Intelligence.";
+    image.innerHTML = '<img src="../images/bio_pics/brooks.PNG" alt="Profile Image">';
+  }
+   if (name == "Benjamin"){
+    title.innerHTML = "Benjamin Gurt";
+    nickname.innerHTML = "The robot";
+    district.innerHTML = "From Robot Land";
+    content.innerHTML = "Benjamin's daily schedule consists of sleeping, draining some battery, waking up for photos, sleeping again, practicing some martial arts in his dreams, and sleeping some more!";
+    image.innerHTML = '<img src="../images/bio_pics/benjaminn.png" alt="Profile Image">';
   }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 function closePopup() {
   document

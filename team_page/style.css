@@ -45,7 +45,7 @@ html{scroll-behavior:smooth;}
 .nav-links {
   float: right;
   height: 100%;
-  width: 63rem;
+  width: 70rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -277,7 +277,6 @@ html{scroll-behavior:smooth;}
   height: 10rem;
   display: flex;
   justify-content: center;
-  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.582), rgba(0, 0, 0, 0));
   align-items: center;
   user-select: none;
 }
@@ -285,7 +284,7 @@ html{scroll-behavior:smooth;}
   font-family: "Bebas Neue", sans-serif;
   font-size: 5rem;
   letter-spacing: .7rem;
-  color: aliceblue;
+  color: rgb(194, 194, 194);
   font-weight: 100;
 }
 #team .heading_banner h1 span, .alumni_banner h1 span {
@@ -337,6 +336,23 @@ html{scroll-behavior:smooth;}
   gap: 2rem;
   margin-top: 2rem;
 }
+.head_team .view_Bio {
+  padding: 1rem 3rem;
+  border-radius: .3rem;
+  background-color: #1995F8;
+  border: 1px solid #1995F8;
+  color: black;
+  font-family: "Inter", sans-serif;
+  outline: none;
+  transition: all 0.2s ease;
+  margin-top: 1rem;
+}
+.head_team .view_Bio:hover {
+  transform: scale(1.05);
+  background-color: #162c4d;
+  border: 1px solid #1995F8;
+  color: #1995F8;
+}
 .head_team .teacher .role, .head_team .assitant .role {
   width: 4rem;
   height: 1rem;
@@ -351,12 +367,12 @@ html{scroll-behavior:smooth;}
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: -15rem;
+  margin-top: -19rem;
   margin-left: 13rem;
 }
 .head_team .teacher, .head_team .assitant {
   width: 20rem;
-  height: 20rem;
+  height: 23rem;
   border-radius: 2rem;
   flex-direction: column;
   background-color: rgba(57, 58, 73, 0.712);
@@ -365,56 +381,23 @@ html{scroll-behavior:smooth;}
   justify-content: center;
 }
 .head_team .teacher .image_circle, .head_team .assitant .image_circle {
-  width: 20rem;
-  height: 20rem;
-  border-radius: 100%;
+  width: 13rem;
+  height: 13rem;
+  margin-top: 1rem;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; 
+  margin-bottom: .5rem;
 }
 .head_team .teacher .image_circle img, .head_team .assitant .image_circle img {
-  width: 65%;
-  height: 65%;
+  width: 100%;
+  height: 100%;
   border-radius: 100%;
 }
-.assitant_bio, .teacher_bio {
-  width: 20rem;
-  height: 20rem;
-  border-radius: 2rem;
-  background-color: rgba(0, 0, 0, 0.212);
-  border: 1px solid rgba(128, 128, 128, 0.586);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  user-select: none;
-}
-.assitant_bio p, .teacher_bio p {
-  text-align: center;
-  font-family: "Inter", sans-serif;
-  margin: 0;
-  padding: 0 2rem;
-  font-weight: 150;
-  font-size: 1rem;
-  margin-bottom: 1rem;
-}
-.teacher_bio h1, .assitant_bio h1 {
-  color: var(--orange);
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 2rem;
-  font-weight: 300;
-}
-.box_bio {
-  padding: 1rem;
-  border: 1px solid #4fb0ff;
-  color: #4fb0ff;
-  background-color: transparent;
-  font-family: "Inter", sans-serif;
-  font-weight: 300;
-}
 .team_banner {
-  width: 10%;
+  width: 100%;
   height: 0rem;
+  opacity: 0;
   transition: all 0.3s ease;
   background-color: rgba(0, 0, 0, 0.178);
   border-top: 1px solid rgba(128, 128, 128, 0.428);
@@ -548,21 +531,20 @@ html{scroll-behavior:smooth;}
 /* ------------------------------------------------------------------------------------------------------ */
 
 
-
+/* ==========================================================================
+   POPUP LAYOUT CONFIGURATION
+   ========================================================================== */
 .popup_overlay {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(8px);
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   opacity: 0;
   visibility: hidden;
   transition: 0.3s ease;
-
   z-index: 9999;
 }
 
@@ -572,62 +554,143 @@ html{scroll-behavior:smooth;}
 }
 
 .popup {
-  width: min(90%, 32rem);
-  padding: 2rem;
-
-  background: #111;
-  border: 1px solid rgba(255,255,255,0.15);
+  display: flex; /* Perfect side-by-side row split */
+  width: min(100%, 50rem);
+  background-color: var(--orange);
   border-radius: 1rem;
-
-  color: white;
+  color: black;
   font-family: Inter, sans-serif;
-
   transform: translateY(20px) scale(0.95);
   transition: 0.3s ease;
-
   position: relative;
-
+  overflow: hidden; /* Clips the inner image corner radiuses automatically */
   box-shadow:
-    0 20px 60px rgba(0,0,0,0.5),
-    0 0 40px rgba(79,176,255,0.15);
+    0 10px 40px rgba(0,0,0,.45),
+    inset 0 1px rgba(255,255,255,.08),
+    0 0 30px rgba(25,149,248,.18);
 }
 
 .popup_overlay.active .popup {
   transform: translateY(0) scale(1);
 }
 
-.popup h2 {
+/* ==========================================================================
+   THE SPLIT STRUCTURAL FIX
+   ========================================================================== */
+.image_side {
+  flex: 1 1 50%;     /* Forces exactly 50% width width no shrinking */
+  display: flex;     /* Erases basic inline block layout gaps */
+  margin: 0;         /* Strips accidental native margins */
+  padding: 0;        /* Strips accidental native paddings */
+}
+
+.image_side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Forces image to populate the box edge-to-edge */
+  display: block;    /* Kills old browser baseline padding gaps underneath images */
+}
+
+.text_side {
+  flex: 1 1 50%;     /* Captures exactly the remaining 50% of screen space */
+  padding: 3rem 2.5rem 2.5rem 2.5rem; /* Spacious internal padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   INTERNAL TYPOGRAPHY & ELEMENTS
+   ========================================================================== */
+#popup_title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 3rem;
+  color: var(--dark_blue);
   margin-top: 0;
+  margin-bottom: 0.75rem;
+  line-height: 1;
+}
+
+#popup_nickname {
+  border: 1px solid #1995F8;
+  background-color: #1995F8;
+  color: white;
+  padding: .5rem 2rem;
+  display: inline-flex;
+  width: max-content;
+  align-items: center;
+  justify-content: center;
+  min-width: 10rem;
+  max-width: 100%;
+}
+
+#popup_content {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  color: #1a1a1a;
+  font-family: "Inter", sans-serif;
+  font-weight: 200;
 }
 
 .popup_close {
   position: absolute;
   top: 1rem;
   right: 1rem;
-
   width: 2rem;
   height: 2rem;
-
   border: none;
   border-radius: 50%;
-
-  background: rgba(255,255,255,0.1);
+  background: rgba(0, 0, 0, 0.15);
   color: white;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.popup_close:hover {
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .popup_btn {
+  padding: 1rem 2rem;
+  border-radius: .3rem;
+  background-color: #1995F8;
+  border: 1px solid #1995F8;
+  color: white;
+  font-family: "Inter", sans-serif;
+  outline: none;
+  transition: all 0.2s ease;
   margin-top: 1rem;
-  padding: 0.8rem 1.4rem;
-
-  border: 1px solid #4fb0ff;
-  background: transparent;
-  color: #4fb0ff;
-
-  border-radius: 0.5rem;
-  cursor: pointer;
+  width: 15rem;
 }
 
+.popup_btn:hover {
+  transform: scale(1.05);
+  background-color: var(--orange);
+  border: 1px solid #1995F8;
+  color: #1995F8;
+}
+
+/* ==========================================================================
+   SCALING PROTECTION BREAKPOINT
+   ========================================================================== */
+@media (max-width: 48em) {
+  .popup {
+    flex-direction: column; /* Shifts layout to top/bottom on zoom or small displays */
+  }
+  .image_side, .text_side {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+  .image_side img {
+    height: 18rem; /* Sets a strict max viewport space for the image when stacked */
+  }
+  .text_side {
+    padding: 2rem 1.5rem;
+  }
+}
 
 /* ------------------------------------------------------------------------------------------------------ */
 /*                                           ANIMATIONS                                                   */

@@ -45,7 +45,7 @@ html{scroll-behavior:smooth;}
 .nav-links {
   float: right;
   height: 100%;
-  width: 63rem;
+  width: 70rem;
   display: flex;
   justify-content: center;
   align-items: center;

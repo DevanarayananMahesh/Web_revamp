@@ -16,20 +16,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
+
+
     <div class="popup_overlay" id="popup_overlay" onclick="closePopup()">
-        <div class="popup" onclick="event.stopPropagation()">
+    <div class="popup" onclick="event.stopPropagation()">
+        
+        <div class="image_side" id="image_side">
+            <img src="../images/bio_pics/benjaminn.png" alt="Profile Image">
+        </div>
+        
+        <div class="text_side">
             <button class="popup_close" onclick="closePopup()">✕</button>
 
             <h2 id="popup_title">Popup Title</h2>
-            <p>Nicknamed <span id="popup_nickname"></span></p>
-            <p>From <span id="popup_district"></span></p>
+            <p id="popup_nickname"></p>
+            <p id="popup_district">From</p>
             <p id="popup_content">Your content goes here.</p>
 
             <button class="popup_btn" onclick="closePopup()">
-            Close
+                Close
             </button>
         </div>
+        
     </div>
+</div>
+
+
     <!-------------------------------------------------------------------------------------------------------->
     <!--                                               NAVBAR                                               -->
     <!-------------------------------------------------------------------------------------------------------->
@@ -43,6 +55,7 @@
             <a href="../index.html#about"><button class="nav_locator">About</button></a>
             <a href="../index.html#what_we_do"><button class="nav_locator">What We Do</button></a>
             <a href="../index.html#seeking"><button class="nav_locator">Seeking</button></a>
+            <a href="../index.html#syllabus"><button class="nav_locator">Syllabus</button></a>
             <a href="../index.html#reach_us"><button class="nav_locator">Contact</button></a>
             <button class="nav_locator">Team</button>
             <a href="../gallery_page/gallery.html"><button class="nav_locator">Gallery</button></a>
@@ -84,33 +97,31 @@
 
     <section id="team">
         <div class="heading_banner">
-            <h1>Meet the <span>Team</span></h1>
+            <h1>Meet the <span>Team.</span></h1>
         </div>
         <div class="head_team">
-            <div class="teacher_bio">
-                <h1>Rachel Brooks</h1>
-                <p>Rachel Brooks is a CTE instructor in AI & Robotics at East Brunswick Magnet School, where she helped develop the AI & Robotics curriculum and teaches programming, machine learning, electronics, and robotics. She holds a B.S. in Computer Science from The Pennsylvania State University while currently pursuing a Master's in Artificial Intelligence.</p>
-            </div>
             <div class="teacher">
                 <div class="role">Teacher</div>
                 <div class="image_circle">
                     <img src="../images/bio_pics/brooks.PNG" alt="">
                 </div>
+                <button class="view_Bio" onclick="openPopup('Brooks')"><i class="fa-solid fa-arrow-up-right-from-square" style="margin-right: .5rem;"></i>View Bio</button>
             </div>
             <div class="assitant">
                 <div class="role">Robot</div>
                 <div class="image_circle">
                     <img src="../images/bio_pics/benjaminn.png" alt="">
                 </div>
+                <button class="view_Bio" onclick="openPopup('Benjamin')"><i class="fa-solid fa-arrow-up-right-from-square" style="margin-right: .5rem;"></i>View Bio</button>
             </div>
-            <div class="assitant_bio">
+            <!-- <div class="assitant_bio">
                 <h1>Benjamin Gurt</h1>
                 <p>Benjamin is a Unitree G1 Edu ultimate D robot from Unitree Robotics.</p>
                 <p><span><b>His favorite hobby:</b></span></p>
                 <div class="box_bio">
                     Sleeping and learning martial arts
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="button_section">
             <button class="student_class" onclick="toggle_team_panel()" id="student_class">
