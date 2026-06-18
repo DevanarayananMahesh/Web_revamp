@@ -32,12 +32,12 @@ function toggle_team_panel2() {
   if (!opened2) {
     button.style.width = "90%";
     banner_team.style.height = "10rem";
-    banner_team.style.width = "100%";
+    banner_team.style.opacity = "1";
     
   } else {
     button.style.width = "";
-    banner_team.style.height = "";
-    banner_team.style.width = "";
+    banner_team.style.height = "0";
+    banner_team.style.opacity = "0";
   }
 
   opened2 = !opened2;

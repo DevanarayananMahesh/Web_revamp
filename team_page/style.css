@@ -246,6 +246,19 @@ html{scroll-behavior:smooth;}
   pointer-events: none;
   transition: opacity 0.3s ease;
 }
+.device_alert_screen {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 0, 0);
+  z-index: 1000000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
 .menu button {
   background: transparent;
   color: var(--dark_blue);
@@ -418,41 +431,28 @@ html{scroll-behavior:smooth;}
   mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
 }
 .team_banner2 {  
-  width: 10%;
+  width: 100%;
   height: 0rem;
+  opacity: 0;
   transition: all 0.3s ease;
   background-color: rgba(0, 0, 0, 0.178);
   border-top: 1px solid rgba(128, 128, 128, 0.428);
   border-bottom: 1px solid rgba(128, 128, 128, 0.428);
   margin-top: -1.5rem;
-
   display: flex;
-  justify-content: center;
   align-items: center;
-
+  justify-content: center;
+  gap: 2rem;
   overflow-x: auto;
   cursor: grab;
   user-select: none;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  padding: 0 2rem;
+  padding: 0 2rem; 
   position: relative;
   box-sizing: border-box;
-
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 15%,
-    black 85%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 15%,
-    black 85%,
-    transparent 100%
-  );
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
 }
 
 .team_banner2 h1 {
@@ -504,12 +504,29 @@ html{scroll-behavior:smooth;}
 }
 .student_info_bar {
   margin-top: -7rem;
-  background-color: #1994f8f0;
-  border: 1px solid grey;
+  background-color: #1994f8;border: none;
   color: black;
   font-family: "Bebas Neue", sans-serif;
   border-radius: 1rem;
   z-index: 900;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: .5rem;
+  font-size: .7rem;
+  color: var(--dark_blue);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  background:
+    linear-gradient(
+      145deg,
+      #1995F8 0%,
+      #0d6bb5 45%,
+      #0a4e85 100%
+    );
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow:
+    0 10px 40px rgba(0,0,0,.45),
+    inset 0 1px rgba(255,255,255,.08),
+    0 0 30px rgba(25,149,248,.18);
 }
 .filler {
   font-family: "Bebas Neue", sans-serif;

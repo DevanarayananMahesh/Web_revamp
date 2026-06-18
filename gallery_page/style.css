@@ -51,6 +51,18 @@ html{scroll-behavior:smooth;}
   align-items: center;
   gap: 2rem;
 }
+.device_alert_screen {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  z-index: 1000000;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
 .nav-links .nav_locator {
   padding: 1rem 2rem;
   font-family:'Bebas Neue',sans-serif;

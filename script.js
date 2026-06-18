@@ -18,7 +18,7 @@ function menu_close() {
 
 const sequences = [
   { line1: "EB Magnet", line2: "AI & Robotics" },
-  { line1: "The Future", line2: "Of Tech" }
+  { line1: "The Future", line2: "Of Technology" }
 ];
 
 const el1 = document.getElementById("line1");
@@ -177,36 +177,66 @@ function nextSlide() {
 
 updateSlides();
 
+
+
 // --------------------------------------------------------------------------------------------
 //                                    CARD STACK ANIMATION
 // --------------------------------------------------------------------------------------------
 
+
+
 const stackCards = Array.from(document.querySelectorAll('.card'));
 let orderIndex = 0;
+let cycleTimer;
+let isAnimating = false;
 
 function applyPositions() {
   const positions = ['front', 'middle', 'back'];
+
   stackCards.forEach((card, i) => {
     card.classList.remove('front', 'middle', 'back');
-    card.classList.add(positions[(i - orderIndex + stackCards.length) % stackCards.length]);
+    card.classList.add(
+      positions[(i - orderIndex + stackCards.length) % stackCards.length]
+    );
   });
 }
 
 applyPositions();
 
 function cycle() {
+  if (isAnimating) return;
+
+  isAnimating = true;
+
   const frontCard = stackCards[orderIndex % stackCards.length];
+
   frontCard.classList.remove('front');
   frontCard.classList.add('flying');
+
   setTimeout(() => {
     orderIndex = (orderIndex + 1) % stackCards.length;
+
     applyPositions();
+
     frontCard.classList.remove('flying');
+
+    isAnimating = false;
   }, 500);
 }
 
-setInterval(cycle, 7500);
+function resetCycleTimer() {
+  clearInterval(cycleTimer);
+  cycleTimer = setInterval(cycle, 7500);
+}
 
+cycleTimer = setInterval(cycle, 7500);
+
+stackCards.forEach(card => {
+  card.addEventListener('click', () => {
+    cycle();
+    resetCycleTimer();
+  });
+});
 // --------------------------------------------------------------------------------------------
 //                                SEEKING TYPE ANIMATION
 // --------------------------------------------------------------------------------------------

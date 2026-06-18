@@ -1,13 +1,16 @@
 :root {
   /* --dark_blue: #071A36; */
   --dark_blue: #071934;
+  --secondary-blue: #1995F8;
   --orange: #f9a136;
+  --mute-text: #a3b3c7;
 }
 
 body {
     margin: 0;
     background: var(--dark_blue);
     color: white;
+    overflow-x: hidden;
 }
 html{scroll-behavior:smooth;}
 
@@ -100,7 +103,7 @@ html{scroll-behavior:smooth;}
     0% calc(100% - 8px)
   );
   outline: 1px solid var(--color-border-primary);
-  background-color: #1995F8;
+  background-color: var(--secondary-blue);
   color: white !important;
   transition: all 0.3s ease;
   filter: brightness(1.05);
@@ -188,7 +191,7 @@ html{scroll-behavior:smooth;}
     0% calc(100% - 8px)
   );
   outline: 1px solid var(--color-border-primary);
-  background-color: #1995F8;
+  background-color: var(--secondary-blue);
   color: white !important;
   transition: all 0.3s ease;
   filter: brightness(1.05);
@@ -269,23 +272,24 @@ html{scroll-behavior:smooth;}
 #hero {
   padding-top: 10rem;
   width: 94%;
-  height: 30rem;
-  margin-left: 3%;
+  height: 37.5rem;
+  margin-left: 6rem;
   position: relative; /* add this */
 }
 #hero::after {
   content: '';
   position: absolute;
   top: -10rem;
-  left: -3%;
+  left: -6rem;
   width: 60%;
-  height: calc(100% + 10rem + 5rem);  /* extra 5rem to bleed past bottom */
-  background-image: url('../images/nodebg.png');
-  background-size: 20rem;
+  height: calc(100% + 10rem + 6rem);
+  background-image: url('../images/customnode.png');
+  background-size: 22rem;
   background-repeat: repeat;
   background-position: center;
   -webkit-mask-image: linear-gradient(to left, transparent 0%, rgba(0,0,0,0.6) 40%, black 100%);
-  mask-image: linear-gradient(to left, transparent 0%, rgba(0,0,0,0.6) 40%, black 100%);
+  mask-image: linear-gradient(to left, transparent 0%, rgba(0, 0, 0, 0.558) 40%, rgba(0, 0, 0, 0.675) 100%);
+  filter: brightness(1.5) hue-rotate(50deg) saturate(9);
   opacity: 0.35;
   pointer-events: none;
   z-index: -1;
@@ -313,7 +317,7 @@ html{scroll-behavior:smooth;}
   margin-top: 5rem;
   display: block;
   font-size: 7rem;
-  color: #1995F8;
+  color: var(--secondary-blue);
   font-weight: 600;
   width: 100%;
   user-select: none;
@@ -338,39 +342,28 @@ html{scroll-behavior:smooth;}
   vertical-align: baseline;
   height: clamp(0rem, 8vw, 5rem);
 }
-
-.hero-sub{
-  margin-top:28px;
-  font-size:1rem;
-  line-height:1.85;
-  font-weight:300;
-  max-width:440px;color:rgba(255, 255, 255, 0.911);
-  animation:slideLeft 0.8s cubic-bezier(0.16,1,0.3,1) 0.52s both;
-  font-family: "Inter", sans-serif;
-}
 .apply_hero {
-  padding: 20px 60px;
+  padding: 1.5rem 6rem;
   font-family:'Bebas Neue',sans-serif;
-  font-size: 28px;
+  font-size: 2rem;
   letter-spacing: 0.04em;
   border: none;
   cursor: pointer;
   clip-path: polygon(
     0% 0%,
-    calc(100% - 8px) 0%,
-    100% 8px,
+    calc(100% - 1rem) 0%,
+    100% 1rem,
     100% 100%,
-    8px 100%,
-    0% calc(100% - 8px)
+    1rem 100%,
+    0% calc(100% - 1rem)
   );
   animation: jitter 2s ease infinite;
   outline: 1px solid var(--color-border-primary);
-  background-color: #1995F8;
+  background-color: var(--secondary-blue);
   color: white !important;
   transition: all 0.3s ease;
   filter: brightness(1.05);
-  margin-left: 130px;
-  margin-top: 2rem;
+  margin-top: 4rem;
 }
 .apply_hero:hover {
   transform: scale(1.05);
@@ -773,7 +766,7 @@ html{scroll-behavior:smooth;}
    background:
     linear-gradient(
       145deg,
-      #1995F8 0%,
+      var(--secondary-blue) 0%,
       #0d6bb5 45%,
       #0a4e85 100%
     );
@@ -802,6 +795,7 @@ html{scroll-behavior:smooth;}
 }
 
 .pillar-body {
+  font-family: "Inter", sans-serif;
   font-size: 1rem;
   line-height: 1.85;
   font-weight: 400;
@@ -818,6 +812,9 @@ html{scroll-behavior:smooth;}
   z-index: 3;
   transform: translate(0px, 0px) scale(1);
   filter: brightness(1.2);
+}
+.card.front:hover {
+  transform: rotate(-2deg) translateX(-1rem) scale(.97);
 }
 .card.middle {
   z-index: 2;
@@ -840,10 +837,11 @@ html{scroll-behavior:smooth;}
   font-size:0.7rem;
   letter-spacing:4px;
   text-transform:uppercase;
-  opacity:0.6;
+  opacity: 1;
   margin-bottom:-2rem;
   display:flex;
   align-items:center;
+  color: var(--mute-text);
 }
 
 .section-label::after{content:'';width:38px;height:1px;background:currentColor;opacity:0.5;}
@@ -960,7 +958,7 @@ html{scroll-behavior:smooth;}
   background: linear-gradient(
     135deg,
     #36a5ff 0%,
-    #1995F8 50%,
+    var(--secondary-blue) 50%,
     #0d6bb5 100%
   );
 
@@ -1004,7 +1002,7 @@ html{scroll-behavior:smooth;}
   background: linear-gradient(
     135deg,
     #4db2ff 0%,
-    #1995F8 50%,
+    var(--secondary-blue) 50%,
     #0d6bb5 100%
   );
 }
@@ -1127,7 +1125,7 @@ html{scroll-behavior:smooth;}
   float: left;
   margin: 0.5rem 1rem 0 0;
 
-  color: #1995f8;
+  color: var(--secondary-blue);
   transform: rotate(90deg);
 }
 
@@ -1202,24 +1200,24 @@ html{scroll-behavior:smooth;}
   color: white;
 }
 .content_syllabus a {
-  color: #1995F8;
+  color: var(--secondary-blue);
   border-bottom: 1px solid transparent;
   transition: all 0.3s ease;
   pointer-events: all;
 }
 
 .code_classroom {
-  color: #1995F8;
+  color: var(--secondary-blue);
   border-bottom: 1px solid transparent;
   transition: all 0.3s ease;
   font-size: 3rem;
   font-family: "Bebas Neue", sans-serif;
 }
 .content_syllabus a:hover {
-  border-bottom: 1px solid #1995F8;
+  border-bottom: 1px solid var(--secondary-blue);
 }
 .middle_info p span {
-  color: #1995F8;
+  color: var(--secondary-blue);
   font-weight: 200;
 }
 .inclusion_box {
@@ -1291,8 +1289,8 @@ html{scroll-behavior:smooth;}
 .copy_code_btn {
   padding: 1rem 3rem;
   border-radius: .3rem;
-  background-color: #1995F8;
-  border: 1px solid #1995F8;
+  background-color: var(--secondary-blue);
+  border: 1px solid var(--secondary-blue);
   color: black;
   font-family: "Inter", sans-serif;
   outline: none;
@@ -1302,8 +1300,8 @@ html{scroll-behavior:smooth;}
 .copy_code_btn:hover {
   transform: translateY(0.2rem);
   background-color: var(--dark_blue);
-  border: 1px solid #1995F8;
-  color: #1995F8;
+  border: 1px solid var(--secondary-blue);
+  color: var(--secondary-blue);
 }
 /* 1. Add pointer-events: none to code_info by default */
 .code_info {
@@ -1481,7 +1479,7 @@ a span:hover {
   );
   animation: jitter 2s ease infinite;
   outline: 1px solid var(--color-border-primary);
-  background-color: #1995F8;
+  background-color: var(--secondary-blue);
   color: white !important;
   transition: all 0.3s ease;
   filter: brightness(1.05);
@@ -1619,25 +1617,9 @@ a span:hover {
   50% { opacity: 0; }
 }
 
-@keyframes banner-scroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-@keyframes card_jitter {
-   0%, 100% { transform: translateY(0px) rotate(0deg); }
-  40% { transform: translateY(-6px) rotate(-0.2deg); }
-  50% { transform: translateY(-7px) rotate(0.2deg); }
-  60% { transform: translateY(-6px) rotate(-0.1deg); }
-}
-
-@keyframes left_slide {
-  0% { transform: translateX(0%) }
-  100% { transform: translateX(-51%) }
-}
 
 @keyframes blink_heroImg {
-  0%, 100% { filter: brightness(1) saturate(1); }
-  25%, 75% { filter: brightness(1.2) saturate(1.2); }
-  50% { filter: brightness(1.5) saturate(1.5); }
+  0%, 100% { filter: brightness(1.5) hue-rotate(50deg) saturate(9); }
+  25%, 75% { filter: brightness(1.7) hue-rotate(75deg) saturate(10); }
+  50% { filter: brightness(1.9) hue-rotate(75deg) saturate(12); }
 }
