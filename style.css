@@ -22,13 +22,16 @@ body {
     background: rgba(255, 255, 255, 0.394);
     pointer-events: none;
     z-index: 1;
+
 }
 .page-line:nth-child(1){
   left: 3rem;
+
 }
 .page-line:nth-child(2){
   right: 4rem;
   background: rgba(255, 255, 255, 0.274);
+
 }
 .page-line:nth-child(3){
   height: .5px;
@@ -36,19 +39,29 @@ body {
   top: 9rem;
   position: relative;
   background-color: rgba(255, 255, 255, 0.401);
+
 }
 .page-line:nth-child(4){
   height: .5px;
-  width: 100vw;
+  width: 100%;
   top: 63rem;
+  left: 0;
   position: relative;
 }
 
 .page-line:nth-child(5){
   height: .5px;
   width: 55vw;
-  top: 143rem;
+  top: 149rem;
   position: relative;
+}
+.page-line:nth-child(6){
+  height: .5px;
+  width: calc(100% - 3rem);
+  left: 3rem;
+  top: 108rem;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.401);
 }
 html{scroll-behavior:smooth;}
 
@@ -57,20 +70,10 @@ html{scroll-behavior:smooth;}
 /*                                          NAVBAR SECTION                                                */
 /* ------------------------------------------------------------------------------------------------------ */
 
-
 .nav {
-  width: 100%;
-  height: 6.21rem;
-  background-color: var(--orange);
-  position: fixed;
-  border-top: none;
-  top: 0rem;
-  z-index: 9000;
-}
-.nav {
-  width: 92vw;
+  width: calc(100vw - 8rem);
   top: 1rem;
-  left: 3vw;
+  left: 3rem;
   height: 6.21rem;
   background-color: var(--orange);
   position: fixed;
@@ -471,7 +474,7 @@ html{scroll-behavior:smooth;}
 
 .rule-row {
   position: relative;
-  width: calc(100vw - 8rem);
+  width: calc(100% - 7rem);
   background-color: #0c437033;
   padding: 1rem 0rem;
   overflow: hidden;
@@ -527,16 +530,15 @@ html{scroll-behavior:smooth;}
 /* ------------------------------------------------------------------------------------------------------ */
 
 .info_panels {
-  width: 87rem;
   background-color: transparent;
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  margin-top: 2rem;
-  gap: 0;
   border: .1px solid rgb(57, 70, 94);
   border-radius: 1.5rem;
   overflow: hidden;
+  width: calc(100% - 13rem);
+  display: flex;
+  flex-direction: row;
+  margin-top: 3rem;
+  margin-left: 6rem;
 }
 
 .pannel {
@@ -715,23 +717,25 @@ html{scroll-behavior:smooth;}
 
 #about {
   scroll-margin-top: 9rem;
-  width: 92vw;
   margin: 3rem auto 0 auto;
-  background-color: #08162c;
   background:
     linear-gradient(
       180deg,
-      #08162c 0%,
+      #081429 0%,
       var(--dark_blue) 100%
     );
+    background-color: green;
   display: flex;
   flex-direction: column;
   margin-left: 3rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.394);
+  border-top: 1px solid rgba(124, 124, 124, 0.394);
   position: relative;
   box-sizing: border-box;
   margin-bottom: 5rem;
-  overflow: hidden;
+  width: calc(100% - 7rem);
+  margin: 3rem;
+  box-sizing: border-box;
+  
 }
 
 
@@ -770,7 +774,7 @@ html{scroll-behavior:smooth;}
 
 .class_img {
   height: 100%;
-  width: 50.5rem;
+  width: 45rem;
   flex-shrink: 0;
   float: left;
 }
@@ -779,42 +783,69 @@ html{scroll-behavior:smooth;}
   height: 100%;
   width: 100%;
   border-radius: 2rem;
-  box-shadow: 10px 10px 10px black;
   border: .5px solid grey;
   object-fit: cover;
   float: left;
-  filter: saturate(200%) sepia(20%);
+  filter: saturate(200%) sepia(20%) brightness(95%);
 }
 
 .stack {
   position: relative;
   width: 23rem;
-  height: 25rem;
+  height: 26rem;
   flex-shrink: 0;
   margin-top: -7rem;
   user-select: none;
 }
 .title_stack {
   width: 100%;
-  height:15rem;
+  height: 20rem;
+  position: relative;
+  overflow: hidden;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-left: 1rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid rgb(62, 62, 62);
+  opacity: 1;
+  filter: brightness(1);
+}
+.title_stack::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+
+  background-image: url('../images/who_we_are_bg.png');
+  background-size: cover;
+  background-position: center;
+
+  filter: brightness(.5) saturate(1) hue-rotate(40deg);
+
+  mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    rgba(0,0,0,.729) 40%,
+    rgba(0,0,0,.493) 100%
+  );
+  animation: blink_about_title 3s cubic-bezier(0.9, 1.9, 1, 0.6) infinite;
+  z-index: 0;
 }
 .title_stack h1 {
   font-family: 'Bebas Neue', sans-serif;
-  color: var(--orange);
-  font-size: 5rem;
-  font-weight: 100;
+  line-height: 0.9;
+  letter-spacing: 2px;
+  margin-top: 1.5rem;
+  font-size:7rem;
+  display: block;
+  -webkit-text-stroke: 1px var(--orange);
+  color: transparent;
+  z-index: 1;
 }
 
 .card {
   position: absolute;
-  width: 28rem;
-  height: 31rem;
+  width: 25rem;
+  margin-top: 1rem;
+  height: 30rem;
   clip-path: polygon(
     0% 0%,
     calc(100% - 30px) 0%,
@@ -832,11 +863,19 @@ html{scroll-behavior:smooth;}
   color: #050e1f;
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.6s ease;
   cursor: pointer;
-   background:
+   /* background:
     linear-gradient(
       145deg,
       var(--secondary-blue) 0%,
       #0d6bb5 45%,
+      #0a4e85 100%
+    ); */
+    background:
+    linear-gradient(
+      145deg,
+      #1466a5 0%,
+      #1873b8 40%,
+      #1873b8 50%,
       #0a4e85 100%
     );
   border: 1px solid rgba(255,255,255,.08);
@@ -1692,3 +1731,10 @@ a span:hover {
   25%, 75% { filter: brightness(1.7) hue-rotate(75deg) saturate(10); }
   50% { filter: brightness(1.9) hue-rotate(75deg) saturate(12); }
 }
+
+@keyframes blink_about_title {
+  0%, 100% { filter: brightness(.3) hue-rotate(40deg) saturate(1.5); }
+  25%, 75% { filter: brightness(.375) hue-rotate(40deg) saturate(1.9); }
+  50% { filter: brightness(.4) hue-rotate(40deg) saturate(2.4); }
+}
+
