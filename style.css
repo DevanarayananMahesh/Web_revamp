@@ -814,17 +814,15 @@ html{scroll-behavior:smooth;}
   position: absolute;
   inset: 0;
 
-  background-image: url('../images/who_we_are_bg.png');
+  background-image: url('images/banner_who_w-are.jpg');
   background-size: cover;
   background-position: center;
-
-  filter: brightness(.5) saturate(1) hue-rotate(40deg);
 
   mask-image: linear-gradient(
     to top,
     transparent 0%,
-    rgba(0,0,0,.729) 40%,
-    rgba(0,0,0,.493) 100%
+    rgba(0, 0, 0, 0.586) 40%,
+    rgba(0, 0, 0, 0) 100%
   );
   animation: blink_about_title 3s cubic-bezier(0.9, 1.9, 1, 0.6) infinite;
   z-index: 0;
@@ -1009,9 +1007,9 @@ html{scroll-behavior:smooth;}
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-weight: 100;
   color: #36a5ff;
   letter-spacing: .4rem;
-  -webkit-text-stroke: 1px #0d2e5f; 
   margin-bottom: 2rem;
 }
 
@@ -1472,6 +1470,7 @@ html{scroll-behavior:smooth;}
   color: rgb(110, 110, 110);
   border-left: none;
   border-right: none;
+  border-bottom: none;
   font-family: "Inter", sans-serif;
   font-weight: 200;
   background-color: transparent;
@@ -1733,8 +1732,8 @@ a span:hover {
 }
 
 @keyframes blink_about_title {
-  0%, 100% { filter: brightness(.3) hue-rotate(40deg) saturate(1.5); }
-  25%, 75% { filter: brightness(.375) hue-rotate(40deg) saturate(1.9); }
-  50% { filter: brightness(.4) hue-rotate(40deg) saturate(2.4); }
+  0%, 100% { filter: brightness(1.5) hue-rotate(90deg) saturate(1.5); }
+  25%, 75% { filter: brightness(1.5) hue-rotate(90deg) saturate(1.9); }
+  50% { filter: brightness(1.5) hue-rotate(160deg) saturate(6); }
 }
 

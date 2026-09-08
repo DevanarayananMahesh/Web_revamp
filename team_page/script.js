@@ -31,7 +31,7 @@ function toggle_team_panel2() {
 
   if (!opened2) {
     button.style.width = "90%";
-    banner_team.style.height = "10rem";
+    banner_team.style.height = "25rem";
     banner_team.style.opacity = "1";
     
   } else {
