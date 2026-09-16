@@ -52,7 +52,7 @@ body {
 .page-line:nth-child(5){
   height: .5px;
   width: 55vw;
-  top: 149rem;
+  top: 161rem;
   position: relative;
 }
 .page-line:nth-child(6){
@@ -483,7 +483,32 @@ html{scroll-behavior:smooth;}
   margin-top: 5.75rem;
   margin-left: 3rem;
 }
-
+.rule-row-header {
+  position: relative;
+  width: calc(100% - 7rem);
+  background-color: #0c437033;
+  padding: 1rem 0rem;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.394);
+  z-index: 100;
+  margin-top: 5.75rem;
+  margin-left: 3rem;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  height: 10rem;
+}
+.rule-row-header span {
+  font-family: 'Bebas Neue', sans-serif;
+  line-height: 0.9;
+  letter-spacing: 2px;
+  margin-top: 1.5rem;
+  font-size:5rem;
+  display: block;
+  -webkit-text-stroke: 1px white;
+  color: transparent;
+  z-index: 1;
+}
 .ticker-track {
   display: flex;
   width: max-content;
@@ -966,7 +991,6 @@ html{scroll-behavior:smooth;}
 /* ------------------------------------------------------------------------------------------------------ */
 /*                                           WHAT WE DO                                                   */
 /* ------------------------------------------------------------------------------------------------------ */
-
 #what_we_do {
   scroll-margin-top: -1rem;
   width: 100%;
