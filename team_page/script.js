@@ -104,7 +104,7 @@ function openPopup(name) {
   }
    if (name == "Brooks"){
     title.innerHTML = "Rachel Brooks";
-    nickname.innerHTML = "Role as Teacher";
+    nickname.innerHTML = "Role as Instructor";
     district.innerHTML = "";
     content.innerHTML = "Rachel Brooks is a CTE instructor in AI & Robotics at East Brunswick Magnet School, where she helped develop the AI & Robotics curriculum and teaches programming, machine learning, electronics, and robotics. She holds a B.S. in Computer Science from The Pennsylvania State University while currently pursuing a Master's in Artificial Intelligence.";
     image.innerHTML = '<img src="../images/bio_pics/brooks.PNG" alt="Profile Image">';

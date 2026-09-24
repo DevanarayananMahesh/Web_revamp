@@ -327,28 +327,33 @@ function copyCode() {
 const TO_EMAIL = 'brooksr@mcmsnj.net';
  
 function openGmail() {
-  const replyTo = document.getElementById('from-email').value.trim();
-  const subject = document.getElementById('subject').value.trim();
-  const body    = document.getElementById('description').value.trim();
-  const error   = document.getElementById('error');
- 
-  if (!subject || !body) {
-    error.style.display = 'block';
-    error.textContent = 'Please fill in at least a subject and message.';
-    return;
-  }
-  error.style.display = 'none';
- 
-  const fullBody = replyTo
-    ? `${body}\n\n— Sent by: ${replyTo}`
-    : body;
- 
-  const gmailURL = 'https://mail.google.com/mail/?view=cm'
-    + `&to=${encodeURIComponent(TO_EMAIL)}`
-    + `&su=${encodeURIComponent(subject)}`
-    + `&body=${encodeURIComponent(fullBody)}`;
- 
+  const fname = document.getElementById('fname').value.trim(); 
+  const lname = document.getElementById('lname').value.trim(); 
+  const replyTo = document.getElementById('from-email').value.trim(); 
+  const subject = document.getElementById('subject').value.trim(); 
+  const body = document.getElementById('message_input').value.trim(); 
+  const error = document.getElementById('error'); 
+
+  if (!fname || !lname || !replyTo || !subject || !body) { 
+      error.style.display = 'block'; 
+      error.textContent = 'Please fill in all fields correctly.'; 
+      return; 
+  } 
+
+  error.style.display = 'none'; 
+
+// Combines first name, last name, and email into the signature line
+  const namePart = [fname, lname].filter(Boolean).join(' ');
+  const senderInfo = namePart + (replyTo ? `, ${replyTo}` : '');
+  const fullBody = senderInfo ? `${body}\n\n— From: ${senderInfo}` : body; 
+
+  const gmailURL = 'https://mail.google.com/mail/?view=cm' + 
+      `&to=${encodeURIComponent(TO_EMAIL)}` + 
+      `&su=${encodeURIComponent(subject)}` + 
+     `&body=${encodeURIComponent(fullBody)}`; 
+
   window.open(gmailURL, '_blank');
+
 }
 
 

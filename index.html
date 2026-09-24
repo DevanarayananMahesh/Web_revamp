@@ -16,10 +16,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=graph_8" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://googleapis.com" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
 
+<div class="page-line"></div>
 <div class="page-line"></div>
 <div class="page-line"></div>
 <div class="page-line"></div>
@@ -34,7 +38,7 @@
 
     <div class="nav">
         <div class="logo_nav">
-            <a href="#hero"><img src="../images/Logo_nav.png" alt="Logo_nav"></a>
+            <a href="#hero"><img src="images/logos/Logo_nav.png" alt="Logo_nav"></a>
         </div>
         <div class="nav-links">
             <a href="#about"><button class="nav_locator">About</button></a>
@@ -245,12 +249,12 @@
           <span class="tc-tag">Construction</span>
         </div>
         <div class="tc_logo_deck">
-          <img src="../images/banner_logos/bambu.webp" alt="">
-          <img src="../images/banner_logos/hp.png" alt="">
-          <img src="../images/banner_logos/niryo.png" style="border-radius: 100%;">
+          <img src="../images/logos/bambu.webp" alt="">
+          <img src="../images/logos/hp.png" alt="">
+          <img src="../images/logos/niryo.png" style="border-radius: 100%;">
 
-          <img src="../images/banner_logos/unitree.png"  style="border-radius: 100%;">
-          <img src="../images/banner_logos/raspberry.png" alt="">
+          <img src="../images/logos/unitree.png"  style="border-radius: 100%;">
+          <img src="../images/logos/raspberry.png" alt="">
 
         </div>
         <button class="tc_next" onclick="nextSlide()">
@@ -285,11 +289,11 @@
           <span class="tc-tag">Machine Learning</span>
         </div>
         <div class="tc_logo_deck">
-          <img src="../images/banner_logos/python.png" alt="">
-          <img src="../images/banner_logos/vex.png" style="border-radius: 100rem;">
-          <img src="../images/banner_logos/c++.png" alt="">
+          <img src="../images/logos/python.png" alt="">
+          <img src="../images/logos/vex.png" style="border-radius: 100rem;">
+          <img src="../images/logos/c++.png" alt="">
 
-          <img src="../images/banner_logos/vscode.png" alt="">
+          <img src="../images/logos/vscode.png" alt="">
 
         </div>
         <button class="tc_next" onclick="nextSlide()">
@@ -324,11 +328,11 @@
           <span class="tc-tag">Presentation</span>
         </div>
         <div class="tc_logo_deck">
-          <img src="../images/banner_logos/middlesex.png" alt="">
-          <img src="../images/banner_logos/ebms.png" alt="">
-          <img src="../images/Logo_nav.png" alt="">
+          <img src="../images/logos/middlesex.png" alt="">
+          <img src="../images/logos/ebms.png" alt="">
+          <img src="../images/logos/Logo_nav.png" alt="">
 
-          <img src="../images/Logo_Footer.png" alt="">
+          <img src="../images/logos/Logo_Footer.png" alt="">
 
         </div>
         <button class="tc_next" onclick="nextSlide()">
@@ -455,56 +459,88 @@
 <!-------------------------------------------------------------------------------------------------------->
 
 <section id="reach_us">
-  <div class="right_panel">
-    <h1>REACH US</h1>
-    <a href="">EMAIL: <span>brooksr@mcmsnj.net</span></a>
-    <br>
-    <a href="">Instagram: <span>@ebms_ai.robotics</span></a>
+  
+<div class="reach_us_box">
+  <div class="right_section">
+    <h1>Get in Touch</h1>
+    <h3>we'd like to hear from you!</h3>
+    <p>Ensure that prior to applying for us, you have already applied to the East Brunswick Magnet School</p>
 
-    <p class="contact-note">Applicants must also have applied to East Brunswick Magnet School.</p>
 
-    <div class="local_info">
-      <div class="filler_div">
-        <span>Location</span> <p>East Brunswick, New Jersey</p>
-        <span>Geography</span> <p>Middlesex County</p>
-        <span>Grades</span> <p>9 - 12</p>
-      </div>
+
+    <div class="logo_row">
+      <img src="images/logos/Logo_Footer.png" alt="">
+      <img src="images/logos/Logo_nav.png" alt="">
+      <img src="images/logos/ebms.png" alt="">
+      <img src="images/logos/middlesex.png" alt="">
     </div>
-    <a href="https://ebms.mcmsnj.net/admissions/ai-robotics" target="_blank"><button class="apply_footer">Apply Now</button></a>
+
   </div>
 
-  <div class="right_pannel">
-    <div class="email_pannel">
-      
 
-      <div class="form-wrap">
-        <h1>We'd love to hear from you!</h1>
-        <p class="subtitle">Clicking send will open Gmail with everything filled in.</p>
- 
-        <div class="field">
-          <i class="fa-solid fa-envelope"></i>
-          <input type="email" id="from-email" placeholder="Your Email" />
-        </div>
- 
-        <div class="field">
-          <i class="fa-solid fa-book-open"></i>
-          <input type="text" id="subject" placeholder="Subject" />
-        </div>
- 
-        <div class="field">
-          <textarea id="description" placeholder="Message"></textarea>
-        </div>
- 
-        <button class="btn" onclick="openGmail()"><i class="fa-solid fa-paper-plane" style="margin-right: 1rem;"></i>Open in Gmail</button>
-        <div class="error" id="error"></div>
+  <div class="email_pannel">
+    
+    <div class="field_row">
+
+      <div class="field">
+        <span style="user-select: none;">First Name</span>
+        <input type="text" class="fname" id="fname">
       </div>
 
+      <div class="field">
+        <span style="user-select: none;">Last Name</span>
+        <input type="text" class="fname" id="lname">
+      </div>
 
     </div>
+
+    <div class="field" id="email_field">
+      <span style="user-select: none;">Email</span>
+      <input type="email" class="fname" id="from-email">
+    </div>
+    <div class="field" id="email_field" style="margin-top: 0.8rem;">
+      <span style="user-select: none;">Subject</span>
+      <input type="text" class="fname" id="subject">
+    </div>
+
+    <div class="field" style="margin-top: .8rem;" id="message_field">
+      <span style="user-select: none;">Message</span>
+      <textarea id="message_input" name="message_" rows="4" cols="50"></textarea>
+    </div>
+    <button class="send_email" id="send_email" onclick="openGmail()"><i class="fa-solid fa-paper-plane" style="margin-right: 1rem;"></i>Open in Gmail</button>
+    <div class="error" id="error"></div>
   </div>
+</div>
+  
 </section>
 
 
+<script>
+
+  function send_mail() {
+    const myEmail = 'brooksr@mcmsnj.net';
+
+// 3. Grab the values the user typed into the form
+// Note: Added missing quotes around the element IDs
+    const name = document.getElementById('fname').value;
+    const last_name = document.getElementById('lname').value;
+    const userEmail = document.getElementById('email').value;
+    const message = document.getElementById('message_input').value;
+
+// 4. Construct the subject and body strings
+    const subject = encodeURIComponent(`New Message from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${userEmail}\n\nMessage:\n${message}`);
+
+// 5. Open directly in Gmail web compose instead of mailto
+    window.open(`https://google.com${myEmail}&su=${subject}&body=${body}`, '_blank');
+
+  }
+
+  // 2. Define YOUR email address where you want to receive the messages
+  
+
+
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
