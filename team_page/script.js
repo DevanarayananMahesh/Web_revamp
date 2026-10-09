@@ -71,7 +71,7 @@ function openPopup(name) {
     title.innerHTML = "Devanarayanan Mahesh";
     nickname.innerHTML = "Nicknamed The designer";
     district.innerHTML = "From East brunswick";
-    content.innerHTML = "Deva is known for his amazing art and design skills, often covering the whiteboards with sketches. He specializes on the design aspects of technology.";
+    content.innerHTML = "Deva is known for both his artistic talent and his skills in frontend development, specializing in the design aspects of technology.";
     image.innerHTML = '<img src="../images/bio_pics/deva.png" alt="Profile Image">';
   }
   if (name == "Ani"){
@@ -87,13 +87,6 @@ function openPopup(name) {
     district.innerHTML = "From Woodbridge";
     content.innerHTML = "David focuses on Machine learning and Computer Science, doing much of the back end code for most projects he works on.";
     image.innerHTML = '<img src="../images/bio_pics/david.jpg" alt="Profile Image">';
-  }
-  if (name == "Hannah"){
-    title.innerHTML = "Hannah Kinney";
-    nickname.innerHTML = "Nicknamed jack of all trades";
-    district.innerHTML = "From East brunswick";
-    content.innerHTML = "Hannah has no distinct focus, preferring to instead work on everything and anything to maximize her experience and options.";
-    image.innerHTML = '<img src="../images/bio_pics/hannah.jpg" alt="Profile Image">';
   }
   if (name == "Shub"){
     title.innerHTML = "Shubham Mishra";

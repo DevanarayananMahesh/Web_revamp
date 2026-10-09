@@ -5,6 +5,10 @@
   --orange: #f9a136;
   --mute-text: #a3b3c7;
 }
+html {
+  scroll-behavior: smooth;
+  overflow-y: scroll; /* Keeps layout calculation stable at all times */
+}
 
 body {
     margin: 0;
@@ -29,7 +33,7 @@ body {
 
 }
 .page-line:nth-child(2){
-  right: 4rem;
+  right: 3rem;
   background: rgba(255, 255, 255, 0.274);
 
 }
@@ -44,7 +48,7 @@ body {
 .page-line:nth-child(4){
   height: .5px;
   width: 100%;
-  top: 63rem;
+  top: 63.15rem;
   left: 0;
   position: relative;
 }
@@ -52,7 +56,7 @@ body {
 .page-line:nth-child(5){
   height: .5px;
   width: 75vw;
-  top: 161rem;
+  top: 160rem;
   position: relative;
 }
 .page-line:nth-child(6){
@@ -64,7 +68,7 @@ body {
   background-color: rgba(255, 255, 255, 0.401);
 }
 .page-line:nth-child(7) {
-   height: .5px;
+    height: .5px;
     width: calc(100% - 15rem);
     left: 3rem;
     top: 148rem;
@@ -72,6 +76,17 @@ body {
     position: relative;
     background-color: rgba(255, 255, 255, 0.51);
 }
+
+.page-line:nth-child(8) {
+  height: .5px;
+  width: calc(100% - 3rem);
+  left: 3rem;
+  top: 239.3rem;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.401);
+}
+
+
 html{scroll-behavior:smooth;}
 
 
@@ -80,7 +95,7 @@ html{scroll-behavior:smooth;}
 /* ------------------------------------------------------------------------------------------------------ */
 
 .nav {
-  width: calc(100vw - 8rem);
+  width: calc(100% - 6rem);
   top: 1rem;
   left: 3rem;
   height: 6.21rem;
@@ -482,7 +497,7 @@ html{scroll-behavior:smooth;}
 
 .rule-row {
   position: relative;
-  width: calc(100% - 7rem);
+  width: calc(100% - 6rem);
   background-color: #0c437033;
   padding: 1rem 0rem;
   overflow: hidden;
@@ -493,7 +508,7 @@ html{scroll-behavior:smooth;}
 }
 .rule-row-header {
   position: relative;
-  width: calc(100% - 7rem);
+  width: calc(100% - 6rem);
   background-color: #0c437033;
   padding: 1rem 0rem;
   overflow: hidden;
@@ -567,7 +582,7 @@ html{scroll-behavior:smooth;}
   border: .1px solid rgb(57, 70, 94);
   border-radius: 1.5rem;
   overflow: hidden;
-  width: calc(100% - 13rem);
+  width: calc(100% - 12rem);
   display: flex;
   flex-direction: row;
   margin-top: 3rem;
@@ -765,7 +780,7 @@ html{scroll-behavior:smooth;}
   position: relative;
   box-sizing: border-box;
   margin-bottom: 5rem;
-  width: calc(100% - 7rem);
+  width: calc(100% - 6rem);
   margin: 3rem;
   box-sizing: border-box;
   
@@ -819,7 +834,7 @@ html{scroll-behavior:smooth;}
   border: .5px solid grey;
   object-fit: cover;
   float: left;
-  filter: saturate(200%) sepia(20%) brightness(95%);
+  filter: saturate(110%) sepia(10%) brightness(110%);
 }
 
 .stack {
@@ -999,18 +1014,20 @@ html{scroll-behavior:smooth;}
 /* ------------------------------------------------------------------------------------------------------ */
 /*                                           WHAT WE DO                                                   */
 /* ------------------------------------------------------------------------------------------------------ */
+/* 1. Change section alignment to center items vertically */
 #what_we_do {
   scroll-margin-top: -1rem;
   width: 100%;
-  height: 57rem;
+  height: 67rem;
   display: flex;
-  align-items: flex-start;
+  align-items: center; /* WAS: flex-start */
   flex-direction: row;
   border-bottom: .1px solid rgb(57, 70, 94);
   background-color: #050e1f;
   position: relative;
   overflow: hidden;
 }
+
 .slider_carousel {
   width: 40rem;
   height: 100%;
@@ -1020,19 +1037,28 @@ html{scroll-behavior:smooth;}
   justify-content: center;
 }
 
+
+/* 2. Remove the top margin from the image */
 .slider_carousel img {
   width: 34rem;
   border-radius: 5rem;
   object-fit: cover;
-  margin-top: 7rem;
+  margin-top: 0; /* WAS: 7rem */
   filter: saturate(200%) sepia(20%);
 }
-.team-card_anim-up {
-  width: 25rem;
-  margin-top: 8rem;
+
+/* 3. Remove the top margin from the text container */
+/* 1. Ensure the right-side text container centers its content vertically */
+.text_carousel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%; /* Matches the image column height */
 }
 
+/* 2. Zero out top margins on the heading to prevent default browser alignment bugs */
 .tc-name {
+  margin-top: 0;
   font-family: 'Bebas Neue', sans-serif;
   font-size: 4rem;
   display: flex;
@@ -1044,12 +1070,19 @@ html{scroll-behavior:smooth;}
   margin-bottom: 2rem;
 }
 
+/* 3. Ensure the inner anim container has no residual offset */
+.team-card_anim-up {
+  width: 25rem;
+  margin-top: 0;
+}
+
 .tc-name span {
   font-size: 4rem;
 }
 .tc-desc {
   font-family: "Inter", sans-serif;
   font-weight: 100;
+  line-height: 2.25rem;
 }
 .tc-tags {margin-top: 2rem; display:flex; gap: .5rem;}
 .tc-tag {
@@ -1168,104 +1201,38 @@ html{scroll-behavior:smooth;}
 /* ------------------------------------------------------------------------------------------------------ */
 /*                                             SEEKING                                                    */
 /* ------------------------------------------------------------------------------------------------------ */
+/* ==========================================================================
+   SEEKING SECTION REDESIGN
+   ========================================================================== */
+
 #seeking {
-  height: 50rem;
+  min-height: 100vh;
   scroll-margin-top: 5rem;
+  background-color: #040e1d;
+  color: #ffffff;
 }
 
-/* Layout */
-.info_section,
-.img_section {
-  width: 40%;
-  height: 40rem;
+.seeking_banner {
+  width: calc(100%-6rem);
+  margin-left: 3rem;
+  height: 14rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-.info_section {
-  padding: 4rem;
-  margin-left: 5rem;
-  float: left;
+.seeking_banner h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  line-height: 0.9;
+  letter-spacing: 2px;
+  font-size:5rem;
+  display: block;
+  -webkit-text-stroke: .1px var(--orange);
+  color: transparent;
 }
-
-.img_section {
-  float: right;
-}
-
-.img_section img {
-  height: 100%;
-  margin: 4rem 0 0 -5rem;
-  border-radius: 5rem;
-  filter: saturate(1.5);
-}
-
-/* Title */
-.heading_seeking {
-  width: 20rem;
-  margin-left: 6rem;
-  padding: 0.5rem;
-
-  background: var(--orange);
-  color: #fff;
-
-  font: 1.8rem "Bebas Neue", sans-serif;
-  letter-spacing: 1px;
-
-  clip-path: polygon(
-    0 0,
-    90% 0,
-    100% 100%,
-    10% 100%,
-    0 0
-  );
-
-  transition: 0.3s ease;
-}
-
-/* Notes */
-.note {
-  margin-top: 2.75rem;
-}
-
-.note p {
-  width: 100%;
-  margin: 0 0 2rem;
-
-  color: rgba(255, 255, 255, 0.9);
-  font: 200 1.5rem "Inter", sans-serif;
-  line-height: 1.85;
-  letter-spacing: 0.2rem;
-
-  min-height: 1.7em;
-}
-
-.note span {
-  float: left;
-  margin: 0.5rem 1rem 0 0;
-
-  color: var(--secondary-blue);
-  transform: rotate(90deg);
-}
-
-/* Cursor */
-.seeking-cursor {
-  display: inline-block;
-  width: 2px;
-  height: 1em;
-
-  margin-left: 2px;
-
-  background: #fff;
-  vertical-align: middle;
-
-  animation: seekingBlink 0.7s step-end infinite;
-  transition: opacity 0.5s ease;
-}
-
-.note p.typing-done {
-  animation: blink 0.7s step-end infinite;
-}
-
-.note p.hide-cursor {
-  animation: none;
+.content {
+  width: 73rem;
+  margin-left: 13rem;
+  height: 47rem;
 }
 /* ------------------------------------------------------------------------------------------------------ */
 /*                                            SYLLABUS                                                    */
@@ -1520,6 +1487,14 @@ html{scroll-behavior:smooth;}
   height: 90%;
   display: flex;
   background-color: rgb(26, 37, 60);
+  clip-path: polygon(
+    0% 0%,
+    calc(100% - 2rem) 0%,
+    100% 2rem,
+    100% 100%,
+    2rem 100%,
+    0% calc(100% - 2rem)
+  );
 }
 .right_section h1{
   font-family:'Bebas Neue',sans-serif;

@@ -79,7 +79,7 @@ loop();
 
 const ring = document.getElementById('ring');
 const counter = document.getElementById('counter');
-const ringTarget = 16;
+const ringTarget = 13;
 let animated = false;
 
 function animateCounter(from, to, duration) {
@@ -237,46 +237,7 @@ stackCards.forEach(card => {
     resetCycleTimer();
   });
 });
-// --------------------------------------------------------------------------------------------
-//                                SEEKING TYPE ANIMATION
-// --------------------------------------------------------------------------------------------
 
-const seekingLines = document.querySelectorAll('#seeking .note p');
-
-function typeLine(el, text) {
-  const cursor = document.createElement('span');
-  cursor.className = 'seeking-cursor';
-  el.textContent = '';
-  el.appendChild(cursor);
-
-  let i = 0;
-  const timer = setInterval(() => {
-    el.textContent += text[i];
-    el.appendChild(cursor);
-    i++;
-    if (i === text.length) {
-      clearInterval(timer);
-
-      setTimeout(() => {
-        cursor.style.opacity = "0";
-      }, 1200);
-    }
-  }, 18);
-}
-
-const lineObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const el = entry.target;
-      lineObserver.unobserve(el);
-      const text = el.dataset.text;
-      const delay = parseInt(el.dataset.delay || 0);
-      setTimeout(() => typeLine(el, text), delay);
-    }
-  });
-}, { threshold: 0.2 });
-
-seekingLines.forEach(p => lineObserver.observe(p));
 
 
 
