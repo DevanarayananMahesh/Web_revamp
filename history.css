@@ -1,0 +1,529 @@
+/* ------------------------------------------------------------------------------------------------------ */
+/*                                           ABOUT PAGE                                                   */
+/* ------------------------------------------------------------------------------------------------------ */
+
+/* --- Line 1: Update #about --- */
+#about {
+  scroll-margin-top: 9rem;
+  margin: 3rem auto 5rem auto; /* Consolidated margin to center container */
+  background:
+    linear-gradient(
+      180deg,
+      #081429 0%,
+      var(--dark_blue) 100%
+    );
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Added: centers child rows horizontally */
+  border-top: 1px solid rgba(124, 124, 124, 0.394);
+  position: relative;
+  box-sizing: border-box;
+  width: calc(100% - 6rem);
+}
+
+/* --- Line 51: Update .about-row --- */
+.about-row {
+  display: flex;
+  align-items: center;     /* Changed: centers image & stack vertically */
+  justify-content: center; /* Added: centers items horizontally */
+  gap: 3rem;
+  width: 100%;             /* Added: allows auto-sizing across available space */
+}
+
+/* --- Line 58: Update .class_img --- */
+.class_img {
+  flex: 1 1 50%;           /* Added: auto-sizes fluidly */
+  max-width: 600px;        /* Added: caps max size */
+  aspect-ratio: 4 / 3;     /* Added: keeps image proportions automatically */
+}
+
+/* --- Line 66: Update .class_img img --- */
+.class_img img {
+  height: 100%;
+  width: 100%;
+  border-radius: 2rem;
+  border: .5px solid grey;
+  object-fit: cover;
+  filter: saturate(110%) sepia(10%) brightness(110%);
+}
+
+/* --- Line 77: Update .stack --- */
+.stack {
+  position: relative;
+  width: 23rem;
+  height: 30rem;           /* Changed: matches .card height */
+  flex-shrink: 0;
+  user-select: none;
+  display: flex;           /* Added: centers card container */
+  align-items: center;     /* Added */
+  justify-content: center; /* Added */
+}
+
+/* --- Line 118: Update .card --- */
+.card {
+  position: absolute;
+  width: 100%;             /* Changed: fills .stack width */
+  height: 100%;            /* Changed: fills .stack height */
+  clip-path: polygon(
+    0% 0%,
+    calc(100% - 30px) 0%,
+    100% 30px,
+    100% 100%,
+    30px 100%,
+    0% calc(100% - 30px)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #050e1f;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.6s ease;
+  cursor: pointer;
+  background:
+    linear-gradient(
+      145deg,
+      #1466a5 0%,
+      #1873b8 40%,
+      #1873b8 50%,
+      #0a4e85 100%
+    );
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow:
+    0 10px 40px rgba(0,0,0,.45),
+    inset 0 1px rgba(255,255,255,.08),
+    0 0 30px rgba(25,149,248,.18);
+}
+
+
+
+
+.card::before,
+.card::after {
+  content:'';
+  position:absolute;
+  width:22px;
+  height:22px;
+  border-color: rgba(255,255,255,.3);
+}
+
+.card::before {
+  top:12px;
+  left:12px;
+  border-top:2px solid;
+  border-left:2px solid;
+}
+
+.card::after {
+  bottom:12px;
+  right:12px;
+  border-bottom:2px solid;
+  border-right:2px solid;
+}
+
+
+.title_stack {
+  width: 100%;
+  height: 20rem;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  filter: brightness(1);
+}
+.title_stack::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+
+  background-image: url('images/banner_who_w-are.jpg');
+  background-size: cover;
+  background-position: center;
+
+  mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    rgba(0, 0, 0, 0.586) 40%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  animation: blink_about_title 3s cubic-bezier(0.9, 1.9, 1, 0.6) infinite;
+  z-index: 0;
+}
+.title_stack h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  line-height: 0.9;
+  letter-spacing: 2px;
+  margin-top: 1.5rem;
+  font-size:7rem;
+  display: block;
+  -webkit-text-stroke: 1px var(--orange);
+  color: transparent;
+  z-index: 1;
+}
+
+
+.pillar-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+  color: #050e1f;
+}
+
+.pillar-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  opacity: 0.6;
+  margin-bottom: 14px;
+  color: #050e1f;
+}
+
+.pillar-body {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  line-height: 1.85;
+  font-weight: 400;
+  color: #050e1f;
+}
+
+.card .pillar {
+  width: 80%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.card.front {
+  z-index: 3;
+  transform: translate(0px, 0px) scale(1);
+  filter: brightness(1.2);
+}
+.card.front:hover {
+  transform: rotate(-2deg) translateX(-1rem) scale(.97);
+}
+.card.middle {
+  z-index: 2;
+  transform: translate(1.1rem, 1.1rem) scale(0.95);
+  filter: brightness(1);
+}
+.card.back {
+  z-index: 1;
+  transform: translate(2.2rem, 2.2rem) scale(0.9);
+  filter: brightness(0.8);
+}
+.card.flying {
+  z-index: 4;
+  transform: translate(500px, -40px) rotate(15deg) scale(0.9);
+  filter: brightness(1);
+}
+
+.section-label{
+  font-family:'Space Mono',monospace;
+  font-size:0.7rem;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  opacity: 1;
+  margin-bottom:-2rem;
+  display:flex;
+  align-items:center;
+  color: var(--mute-text);
+}
+
+.section-label::after{content:'';width:38px;height:1px;background:currentColor;opacity:0.5;}
+.section-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(44px,6vw,78px);
+  line-height:0.92;letter-spacing:1px;
+  margin-bottom:.5rem;
+  color: var(--orange);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+OLD VERSION BELOW
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#about {
+  scroll-margin-top: 9rem;
+  margin: 3rem auto 0 auto;
+  background:
+    linear-gradient(
+      180deg,
+      #081429 0%,
+      var(--dark_blue) 100%
+    );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 3rem;
+  border-top: 1px solid rgba(124, 124, 124, 0.394);
+  position: relative;
+  box-sizing: border-box;
+  margin-bottom: 5rem;
+  width: calc(100% - 6rem);
+  margin: 3rem;
+  box-sizing: border-box;
+  
+}
+
+
+
+
+.card::before,
+.card::after {
+  content:'';
+  position:absolute;
+  width:22px;
+  height:22px;
+  border-color: rgba(255,255,255,.3);
+}
+
+.card::before {
+  top:12px;
+  left:12px;
+  border-top:2px solid;
+  border-left:2px solid;
+}
+
+.card::after {
+  bottom:12px;
+  right:12px;
+  border-bottom:2px solid;
+  border-right:2px solid;
+}
+
+
+.about-row {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  height: 500px;
+}
+
+.class_img {
+  height: 100%;
+  width: 60%;
+  /* WIDTH WAS 45rem */
+  flex-shrink: 0;
+  float: left;
+}
+
+.class_img img {
+  height: 100%;
+  width: 100%;
+  border-radius: 2rem;
+  border: .5px solid grey;
+  object-fit: cover;
+  float: left;
+  filter: saturate(110%) sepia(10%) brightness(110%);
+}
+
+.stack {
+  position: relative;
+  width: 23rem;
+  height: 26rem;
+  flex-shrink: 0;
+  margin-top: -7rem;
+  user-select: none;
+}
+.title_stack {
+  width: 100%;
+  height: 20rem;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  filter: brightness(1);
+}
+.title_stack::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+
+  background-image: url('images/banner_who_w-are.jpg');
+  background-size: cover;
+  background-position: center;
+
+  mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    rgba(0, 0, 0, 0.586) 40%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  animation: blink_about_title 3s cubic-bezier(0.9, 1.9, 1, 0.6) infinite;
+  z-index: 0;
+}
+.title_stack h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  line-height: 0.9;
+  letter-spacing: 2px;
+  margin-top: 1.5rem;
+  font-size:7rem;
+  display: block;
+  -webkit-text-stroke: 1px var(--orange);
+  color: transparent;
+  z-index: 1;
+}
+
+.card {
+  position: absolute;
+  width: 25rem;
+  margin-top: 1rem;
+  height: 30rem;
+  clip-path: polygon(
+    0% 0%,
+    calc(100% - 30px) 0%,
+    100% 30px,
+    100% 100%,
+    30px 100%,
+    0% calc(100% - 30px)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #050e1f;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.6s ease;
+  cursor: pointer;
+   /* background:
+    linear-gradient(
+      145deg,
+      var(--secondary-blue) 0%,
+      #0d6bb5 45%,
+      #0a4e85 100%
+    ); */
+    background:
+    linear-gradient(
+      145deg,
+      #1466a5 0%,
+      #1873b8 40%,
+      #1873b8 50%,
+      #0a4e85 100%
+    );
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow:
+    0 10px 40px rgba(0,0,0,.45),
+    inset 0 1px rgba(255,255,255,.08),
+    0 0 30px rgba(25,149,248,.18);
+}
+
+.pillar-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+  color: #050e1f;
+}
+
+.pillar-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  opacity: 0.6;
+  margin-bottom: 14px;
+  color: #050e1f;
+}
+
+.pillar-body {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  line-height: 1.85;
+  font-weight: 400;
+  color: #050e1f;
+}
+
+.card .pillar {
+  width: 80%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.card.front {
+  z-index: 3;
+  transform: translate(0px, 0px) scale(1);
+  filter: brightness(1.2);
+}
+.card.front:hover {
+  transform: rotate(-2deg) translateX(-1rem) scale(.97);
+}
+.card.middle {
+  z-index: 2;
+  transform: translate(1.1rem, 1.1rem) scale(0.95);
+  filter: brightness(1);
+}
+.card.back {
+  z-index: 1;
+  transform: translate(2.2rem, 2.2rem) scale(0.9);
+  filter: brightness(0.8);
+}
+.card.flying {
+  z-index: 4;
+  transform: translate(500px, -40px) rotate(15deg) scale(0.9);
+  filter: brightness(1);
+}
+
+.section-label{
+  font-family:'Space Mono',monospace;
+  font-size:0.7rem;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  opacity: 1;
+  margin-bottom:-2rem;
+  display:flex;
+  align-items:center;
+  color: var(--mute-text);
+}
+
+.section-label::after{content:'';width:38px;height:1px;background:currentColor;opacity:0.5;}
+.section-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(44px,6vw,78px);
+  line-height:0.92;letter-spacing:1px;
+  margin-bottom:.5rem;
+  color: var(--orange);
+}
+
+
